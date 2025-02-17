@@ -1,0 +1,35 @@
+{
+  "name": "geoplacemark",
+  "version": "1.0.0",
+  "description": "A web app to document and share points of geological interest including both Non-economic and economic mineral collecting sites and fossil collecting sites across the globe",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "lint": "./node_modules/.bin/eslint . --ext .js",
+    "test": "mocha --ui tdd test/**.js -exit",
+    "dev": "nodemon  src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^1.7.9",
+    "chai": "^5.2.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-import": "^2.31.0",
+    "mocha": "^11.1.0",
+    "prettier": "^3.5.1"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@hapi/cookie": "^12.0.1",
+    "@hapi/hapi": "^21.3.12",
+    "@hapi/vision": "^7.0.3",
+    "handlebars": "^4.7.8",
+    "joi": "^17.13.3",
+    "mongoose": "^8.10.1",
+    "uuid": "^11.0.5"
+  }
+}
