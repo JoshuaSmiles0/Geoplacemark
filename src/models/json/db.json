@@ -5,21 +5,50 @@
       "surname": "reilly",
       "email": "paddyR@outlook.com",
       "password": "secret",
-      "_id": "f34efc46-099b-4fed-b4bd-fc9d46e4fc6c"
+      "_id": "1c03a13c-9fbd-4c8d-9e40-caf254577f6c"
     },
     {
       "firstName": "Jenny",
       "surname": "Rourke",
       "email": "jRourke@gmail.com",
       "password": "secret",
-      "_id": "13275dad-03d0-429b-bde5-2989a3de05c4"
+      "_id": "bbcd55fd-64e1-4e9f-80be-0aa11a3e2ef5"
     },
     {
       "firstName": "Fran",
       "surname": "Ciss",
       "email": "FC@yahoo.com",
       "password": "secret",
-      "_id": "6656f89b-1073-4550-bc56-dc30564133f6"
+      "_id": "2ae01e8e-5ddf-4300-8fb1-cb55373cae31"
+    }
+  ],
+  "pois": [
+    {
+      "name": "silvermines",
+      "lat": 53.65394778470117,
+      "long": -6.720177158598912,
+      "type": "economic",
+      "description": "A lead and zinc mine in the republic of ireland near the town of navan",
+      "userid": "431f41b4-5a63-4e02-995e-3783551ad4e1",
+      "_id": "ab86f1d6-19d0-4956-87ce-7f081df733c9"
+    },
+    {
+      "name": "Slieve Foye",
+      "lat": 54.043728,
+      "long": -6.215958,
+      "type": "mineralogical",
+      "description": "A mountain with igneous rocks in Co. Louth Ireland on the Carlingford peninsula",
+      "userid": "431f41b4-5a63-4e02-995e-3783551ad4e1",
+      "_id": "6d4f1093-0b98-4af1-a0a3-dbc8c8172fb7"
+    },
+    {
+      "name": "Hook Head",
+      "lat": 52.123344,
+      "long": -6.926058,
+      "type": "palaeo",
+      "description": "A hotbed of exceptionally preserved fossils on the coast of wexford",
+      "userid": "431f41b4-5a63-4e02-995e-3783551ad4e1",
+      "_id": "ac1f2912-5362-460c-bdfe-0f1282b30456"
     }
   ]
 }

@@ -1,0 +1,30 @@
+<section class="section">
+  <h1 class="title">{{title}}</h1>
+  <form action="/addPoi" method="POST">
+    <div class="field">
+        <label class="label">Location</label><input class="input" type="text" placeholder="Enter Location Name" name="location">
+    </div>
+    <div class="field">
+        <label class="label">Latitude</label><input class="input" type="text" placeholder="Enter latitude" name="lat">
+    </div>
+    <div class="field">
+      <label class="label">Longitude</label> <input class="input" type="text" placeholder="Enter longitude" name="long">
+    </div>
+    <div class="field">
+      <label class="label">Type</label> 
+      <div class="select">
+        <select name="type">
+            <option value="economic">Economic site</option>
+            <option value="mineralogical">Mineralogical site</option>
+            <option value="palaeo">Palaeontological site</option>
+        </select>
+    </div>
+    <div class="field">
+        <label class="label">Description</label>
+        <textarea class="textarea" placeholder="Enter short description" name="description"></textarea>
+    </div>
+    <div class="field is-grouped">
+      <button class="button is-info">Submit</button>
+    </div>
+  </form>
+</section>
