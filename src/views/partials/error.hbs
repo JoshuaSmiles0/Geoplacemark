@@ -1,0 +1,12 @@
+{{#if errors}}
+<div class = "box content">
+    <p class="subtitle">
+        There appears to be an issue.
+    </p>
+    <ul>
+        {{#each errors}}
+         <li>{{message}}</li>
+        {{/each}}
+    </ul>
+</div>
+{{/if}}

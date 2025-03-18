@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "firstName": "Paddy",
+      "surname": "reilly",
+      "email": "paddyR@outlook.com",
+      "password": "secret",
+      "_id": "f34efc46-099b-4fed-b4bd-fc9d46e4fc6c"
+    },
+    {
+      "firstName": "Jenny",
+      "surname": "Rourke",
+      "email": "jRourke@gmail.com",
+      "password": "secret",
+      "_id": "13275dad-03d0-429b-bde5-2989a3de05c4"
+    },
+    {
+      "firstName": "Fran",
+      "surname": "Ciss",
+      "email": "FC@yahoo.com",
+      "password": "secret",
+      "_id": "6656f89b-1073-4550-bc56-dc30564133f6"
+    }
+  ]
+}

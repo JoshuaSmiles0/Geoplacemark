@@ -1,0 +1,23 @@
+{{> welcomeNav }}
+
+
+<section class="section">
+  <h1 class="title">{{title}}</h1>
+  <form action="/signUpUser" method="POST">
+    <div class="field">
+        <label class="label">First Name</label><input class="input" type="text" placeholder="Enter first name" name="firstName">
+    </div>
+    <div class="field">
+        <label class="label">Surname</label><input class="input" type="text" placeholder="Enter last name" name="surname">
+    </div>
+    <div class="field">
+      <label class="label">Email</label> <input class="input" type="text" placeholder="Enter email address" name="email">
+    </div>
+    <div class="field">
+      <label class="label">Password</label> <input class="input" type="password" placeholder="Enter Password" name="password">
+    </div>
+    <div class="field is-grouped">
+      <button class="button is-info">Submit</button>
+    </div>
+  </form>
+</section>

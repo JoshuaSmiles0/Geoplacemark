@@ -1,11 +1,9 @@
 export const welcomeController = {
 
     index: {
+      auth: false,
       handler: async function (request, h) {
-        const viewData = {
-          title: "Geoplacemark",
-        };
-        return h.view("welcome-view", viewData);
+        return h.view("welcome-view", {title:"Geoplacemark"});
       },
     }
 }
