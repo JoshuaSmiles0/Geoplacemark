@@ -45,21 +45,21 @@ export const testPoi = {
 
 export const testPois = [
     {
-       name: "silvermines",
+       location: "silvermines",
        lat:  53.65394778470117,
        long: -6.720177158598912,
        type: "economic",
        description: "A lead and zinc mine in the republic of ireland near the town of navan",
     },
     {
-        name: "Slieve Foye",
+        location: "Slieve Foye",
         lat:  54.043728,
         long: -6.215958,
         type: "mineralogical",
         description: "A mountain with igneous rocks in Co. Louth Ireland on the Carlingford peninsula",
     },
     {
-        name: "Hook Head",
+        location: "Hook Head",
         lat:  52.123344,
         long: -6.926058,
         type: "palaeo",

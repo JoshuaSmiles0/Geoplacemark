@@ -63,6 +63,14 @@ export const poiJsonStore = {
         return pType;
     },
 
+    async getPoiByUserIdType(userid, type) {
+        await db.read();
+        const userP = db.data.pois.filter((poi) => poi.userid === userid);
+        let userPType = userP.filter((userP) => userP.type === type);
+        if (userPType === undefined) userPType = null;
+        return userPType;
+    },
+
 
 
 

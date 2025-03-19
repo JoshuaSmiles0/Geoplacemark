@@ -8,7 +8,7 @@ export const dashboardController = {
             const loggedInUser = request.auth.credentials;
             const userPois = await db.poiStore.getPoiByUserId(loggedInUser._id);
             const viewData = {
-                title: `${loggedInUser.firstName + " " + loggedInUser.surname} Dashboard`,
+                title: `${loggedInUser.firstName} ${loggedInUser.surname} Dashboard`,
                 pois: userPois,
             }
             return h.view("dashboard-view", viewData)
@@ -34,5 +34,16 @@ export const dashboardController = {
     },
 
 
-
+    
+    filterPois : {
+        handler: async function (request, h) {
+            const loggedInUser = request.auth.credentials;
+            const userPoisType = await db.poiStore.getPoiByUserIdType(loggedInUser._id, request.payload.type);
+            const viewData = {
+                title: `${loggedInUser.firstName} ${loggedInUser.surname} Dashboard`,
+                pois: userPoisType,
+            }
+            return h.view("dashboard-view", viewData)
+        }
+    },
 };

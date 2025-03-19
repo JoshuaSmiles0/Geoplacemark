@@ -1,7 +1,8 @@
 import { welcomeController } from "./controllers/welcome-controller.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
-import { methodNotAllowed } from "@hapi/boom";
+import { publicDashboardController } from "./controllers/public-dashboard-controller.js";
+
 
 export const webRoutes = [
     { method: "GET", path: "/", config: welcomeController.index },
@@ -13,4 +14,7 @@ export const webRoutes = [
     { method: "GET", path: "/dashboard", config: dashboardController.index},
     { method: "GET", path: "/logout", config: accountsController.logout},
     { method: "POST", path: "/dashboard/addPoi", config: dashboardController.addPoi},
+    { method: "POST", path: "/dashboard/filtered", config: dashboardController.filterPois},
+    { method: "GET", path: "/publicDashboard", config: publicDashboardController.index},
+    { method: "POST", path: "/publicDashboard/filtered", config: publicDashboardController.filterPublicPois},
 ];

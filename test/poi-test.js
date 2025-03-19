@@ -122,4 +122,40 @@ suite("Poi Tests", () => {
         const updatedPois = await db.poiStore.getAllPoi();
         assert.equal(updatedPois.length,testPois.length);
     });
+
+
+    test("Get Poi by userId and type - success", async () => {
+        const desiredPois = await db.poiStore.getPoiByUserIdType(user._id, testPois[0].type);
+        assert.equal(desiredPois.length, 1);
+    });
+
+    test("Get Poi By userId and type - failure both params", async () => {
+        const newPoi = testPoi;
+        newPoi.userid = user._id;
+        await db.poiStore.addPoi(newPoi);
+        const allPoi = await db.poiStore.getAllPoi();
+        assert.equal(allPoi.length, testPois.length + 1);
+        const returnedPoi = await db.poiStore.getPoiByUserIdType("bad id", "bad type");
+        assert.isEmpty(returnedPoi);
+    });
+
+    test("Get Poi By userId and type - failure type param", async () => {
+        const newPoi = testPoi;
+        newPoi.userid = user._id;
+        await db.poiStore.addPoi(newPoi);
+        const allPoi = await db.poiStore.getAllPoi();
+        assert.equal(allPoi.length, testPois.length + 1);
+        const returnedPoi = await db.poiStore.getPoiByUserIdType(newPoi.userId, "bad type");
+        assert.isEmpty(returnedPoi);
+    });
+
+    test("Get Poi By userId and type - failure id param", async () => {
+        const newPoi = testPoi;
+        newPoi.userid = user._id;
+        await db.poiStore.addPoi(newPoi);
+        const allPoi = await db.poiStore.getAllPoi();
+        assert.equal(allPoi.length, testPois.length + 1);
+        const returnedPoi = await db.poiStore.getPoiByUserIdType("bad id", testPois[0].type);
+        assert.isEmpty(returnedPoi);
+    });
 });
