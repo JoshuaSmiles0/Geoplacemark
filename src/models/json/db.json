@@ -5,21 +5,28 @@
       "surname": "reilly",
       "email": "paddyR@outlook.com",
       "password": "secret",
-      "_id": "1c03a13c-9fbd-4c8d-9e40-caf254577f6c"
+      "_id": "4f6b0007-e62a-400f-bcb9-64a009b8836c"
     },
     {
       "firstName": "Jenny",
       "surname": "Rourke",
       "email": "jRourke@gmail.com",
       "password": "secret",
-      "_id": "bbcd55fd-64e1-4e9f-80be-0aa11a3e2ef5"
+      "_id": "950bfc13-a1fe-42e1-9db6-714baffab265"
     },
     {
       "firstName": "Fran",
       "surname": "Ciss",
       "email": "FC@yahoo.com",
       "password": "secret",
-      "_id": "2ae01e8e-5ddf-4300-8fb1-cb55373cae31"
+      "_id": "61d7fe0c-8da4-465b-9f8c-d90041315b37"
+    },
+    {
+      "firstName": "altus",
+      "surname": "Smiles",
+      "email": "altusjonson@gmail.com",
+      "password": "1234",
+      "_id": "de478d5a-c1e6-4221-ab94-350a6bc9f580"
     }
   ],
   "pois": [
@@ -29,8 +36,8 @@
       "long": -6.720177158598912,
       "type": "economic",
       "description": "A lead and zinc mine in the republic of ireland near the town of navan",
-      "userid": "431f41b4-5a63-4e02-995e-3783551ad4e1",
-      "_id": "ab86f1d6-19d0-4956-87ce-7f081df733c9"
+      "userid": "55ff3fda-0b41-424a-b76e-da5025aa4640",
+      "_id": "277e5d9e-fde7-430a-b8be-1a460f35032e"
     },
     {
       "name": "Slieve Foye",
@@ -38,8 +45,8 @@
       "long": -6.215958,
       "type": "mineralogical",
       "description": "A mountain with igneous rocks in Co. Louth Ireland on the Carlingford peninsula",
-      "userid": "431f41b4-5a63-4e02-995e-3783551ad4e1",
-      "_id": "6d4f1093-0b98-4af1-a0a3-dbc8c8172fb7"
+      "userid": "55ff3fda-0b41-424a-b76e-da5025aa4640",
+      "_id": "70041260-0ca5-4192-9f58-ebc9fedde812"
     },
     {
       "name": "Hook Head",
@@ -47,8 +54,88 @@
       "long": -6.926058,
       "type": "palaeo",
       "description": "A hotbed of exceptionally preserved fossils on the coast of wexford",
-      "userid": "431f41b4-5a63-4e02-995e-3783551ad4e1",
-      "_id": "ac1f2912-5362-460c-bdfe-0f1282b30456"
+      "userid": "55ff3fda-0b41-424a-b76e-da5025aa4640",
+      "_id": "a79bf455-3286-4900-8cd5-c96f422074f5"
+    },
+    {
+      "userid": "de478d5a-c1e6-4221-ab94-350a6bc9f580",
+      "lat": "45.925",
+      "long": "-6.14",
+      "type": "palaeo",
+      "description": "Fossils on the coast",
+      "_id": "ee372ece-294b-4140-80cf-91ffb618a828"
+    },
+    {
+      "lat": "45.925",
+      "long": "-6.14",
+      "type": "palaeo",
+      "description": "Fossils on the coast",
+      "userid": "de478d5a-c1e6-4221-ab94-350a6bc9f580",
+      "_id": "aa368781-3bef-4f6c-b38e-8f37261f8572"
+    },
+    {
+      "lat": "45.925",
+      "long": "-6.14",
+      "type": "palaeo",
+      "description": "Fossils on the coast",
+      "userid": "de478d5a-c1e6-4221-ab94-350a6bc9f580",
+      "_id": "9aebf6fb-d22e-438f-9e00-73e49c66668a"
+    },
+    {
+      "lat": "52.25833",
+      "long": "-6.14",
+      "type": "mineralogical",
+      "description": "some minerals on the coast",
+      "userid": "de478d5a-c1e6-4221-ab94-350a6bc9f580",
+      "_id": "3c321ee3-e3a3-4bbd-b708-ea7faf90327b"
+    },
+    {
+      "location": "Dingle",
+      "lat": "52.25833",
+      "long": "-6.14",
+      "type": "mineralogical",
+      "description": "some minerals on the coast",
+      "userid": "de478d5a-c1e6-4221-ab94-350a6bc9f580",
+      "_id": "a868a8a2-4501-4962-a68e-1261cc68899d"
+    },
+    {
+      "location": "horses mouth",
+      "lat": "54.2123",
+      "long": "-5.10",
+      "type": "economic",
+      "description": "get some economic minerals from the horses mouth ",
+      "userid": "de478d5a-c1e6-4221-ab94-350a6bc9f580",
+      "_id": "5c7a868a-de35-45b8-bcb2-06b376ba08ee"
+    },
+    {
+      "location": "listoonvarna",
+      "lat": "53",
+      "long": "6",
+      "type": "economic",
+      "description": "wergsrgr",
+      "userid": "de478d5a-c1e6-4221-ab94-350a6bc9f580",
+      "iconAddress": "/images/economicLocation.jpg",
+      "_id": "1283a4db-2452-4518-83b6-d04c79186c9b"
+    },
+    {
+      "location": "the hills",
+      "lat": "54",
+      "long": "-7",
+      "type": "mineralogical",
+      "description": "a mineral site",
+      "userid": "de478d5a-c1e6-4221-ab94-350a6bc9f580",
+      "iconAddress": "/images/mineralLocation.jpg",
+      "_id": "5c687419-3ad7-47ca-8455-ddf8032254ef"
+    },
+    {
+      "location": "the lake",
+      "lat": "56",
+      "long": "-9.87",
+      "type": "palaeo",
+      "description": "fossils in the lake",
+      "userid": "de478d5a-c1e6-4221-ab94-350a6bc9f580",
+      "iconAddress": "/images/fossilLocation.jpg",
+      "_id": "509b7841-9fcc-4839-9268-34f202f1728d"
     }
   ]
 }

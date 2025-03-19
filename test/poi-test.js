@@ -101,13 +101,25 @@ suite("Poi Tests", () => {
             await db.poiStore.deletePoiById("idq");
             pois = await db.poiStore.getAllPoi();
             assert.equal(pois.length, testPois.length)
-    
         });
-    
 
-    
+    test("delete poi by user id - success", async() => {
+        const newPoi = testPoi;
+        const id = "1234567"
+        newPoi.userid = id
+        await db.poiStore.addPoi(newPoi);
+        let updatedPois = await db.poiStore.getAllPoi();
+        assert.equal(testPois.length + 1, updatedPois.length);
+        await db.poiStore.deletePoiByUserId(id);
+        updatedPois = await db.poiStore.getAllPoi();
+        assert.equal(updatedPois.length,testPois.length);
+    });
 
 
-
-
+    test("delete poi by user id - failure", async() => {
+        const id = "1234567"
+        await db.poiStore.deletePoiByUserId(id);
+        const updatedPois = await db.poiStore.getAllPoi();
+        assert.equal(updatedPois.length,testPois.length);
+    });
 });

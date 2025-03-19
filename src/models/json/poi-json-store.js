@@ -35,8 +35,17 @@ export const poiJsonStore = {
         return userP;
     },
 
-    async deletePoiByUserId(userId) {
+    async deletePoiByUserId(userid) {
         await db.read();
+        const pois = db.data.pois;
+        pois.forEach(poi => {
+            if(poi.userid === userid){
+                const id = poi._id
+                const index = db.data.pois.findIndex((poi) => poi._id === id);
+                db.data.pois.splice(index, 1);
+            }
+        });
+        await db.write();
     },
 
 
@@ -52,7 +61,9 @@ export const poiJsonStore = {
         let pType = db.data.pois.filter((poi) => poi.type === type);
         if (pType === undefined) pType = null;
         return pType;
-    }
+    },
+
+
 
 
 

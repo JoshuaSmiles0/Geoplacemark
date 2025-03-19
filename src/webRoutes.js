@@ -1,6 +1,7 @@
 import { welcomeController } from "./controllers/welcome-controller.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
+import { methodNotAllowed } from "@hapi/boom";
 
 export const webRoutes = [
     { method: "GET", path: "/", config: welcomeController.index },
@@ -11,4 +12,5 @@ export const webRoutes = [
     { method: "POST", path: "/loginUser", config: accountsController.login},
     { method: "GET", path: "/dashboard", config: dashboardController.index},
     { method: "GET", path: "/logout", config: accountsController.logout},
+    { method: "POST", path: "/dashboard/addPoi", config: dashboardController.addPoi},
 ];
