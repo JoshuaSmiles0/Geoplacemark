@@ -1,0 +1,23 @@
+<section class="columns">
+    <div class="column is-4">
+      <form action="/dashboard/filtered" method="POST">
+      <div class="field">
+      <label class="label">Select type to filter by</label> 
+      <div class="select">
+        <select name="type">
+            <option value="economic">Economic site</option>
+            <option value="mineralogical">Mineralogical site</option>
+            <option value="palaeo">Palaeontological site</option>
+        </select>
+      </div>
+      </div>
+      <div class="field is-grouped">
+        <button class="button is-info">filter</button>
+      </div>
+      </form>
+      <div class="mt-2">
+        <a href="/dashboard">
+          <button class="button is-danger">Clear</button>
+        </a>
+      </div>
+</section>

@@ -1,0 +1,52 @@
+
+{{#each pois}}
+  <div class="box box-link-hover-shadow">
+    <div class="columns">
+        <div class="column is-1">
+           <img src="{{iconAddress}}" alt="logo">
+        </div>
+        <div class="column is-4">
+            <h2 class="title">
+               {{location}}
+           </h2>
+       </div>
+    </div>
+    <div class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-header">
+                    <p class="card-header-title">Type:</p>
+                </div>
+                <div class="card-content">
+                    <p>{{type}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="card-header">
+                    <p class="card-header-title">Lat:</p>
+                </div>
+                <div class="card-content">
+                    <p>{{lat}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="card-header">
+                    <p class="card-header-title">Long:</p>
+                </div>
+                <div class="card-content">
+                    <p>{{long}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/poi/{{_id}}" class="button">
+      <span class="icon is-small">
+        <i class="fas fa-folder-open"></i>
+      </span>
+    </a>
+  </div>
+{{/each}}
