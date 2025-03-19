@@ -5,116 +5,55 @@
       "surname": "reilly",
       "email": "paddyR@outlook.com",
       "password": "secret",
-      "_id": "8dac9e91-e066-462b-8cf9-20b4c66e0e38"
+      "_id": "8228fad2-0871-4e65-b206-d52e23236fd1"
     },
     {
       "firstName": "Jenny",
       "surname": "Rourke",
       "email": "jRourke@gmail.com",
       "password": "secret",
-      "_id": "de6d5b07-09ae-4208-8c7a-bd71ef57cab4"
+      "_id": "045ba09d-6d37-46f6-97b7-44ba2e380953"
     },
     {
       "firstName": "Fran",
       "surname": "Ciss",
       "email": "FC@yahoo.com",
       "password": "secret",
-      "_id": "8bb34932-bf38-4c80-a327-9188a07e2f00"
-    },
-    {
-      "firstName": "altus",
-      "surname": "Smiles",
-      "email": "altusjonson@gmail.com",
-      "password": "1234",
-      "_id": "5e3a4f83-d411-4b5e-ad61-17b96a3bd88f"
+      "_id": "627a1bf3-0559-45c0-b503-60b74a6fd4c2"
     }
   ],
   "pois": [
     {
-      "location": "silvermines",
+      "name": "Tara mines",
       "lat": 53.65394778470117,
       "long": -6.720177158598912,
       "type": "economic",
       "description": "A lead and zinc mine in the republic of ireland near the town of navan",
-      "userid": "ea97f1dd-f0d0-456f-94b2-4e047621a02c",
-      "_id": "32d6009d-5f29-488a-be6b-2eb9aa3fd0aa"
+      "_id": "e073e62d-4ac4-4dba-829d-554f77b59d4a",
+      "userid": "35b29d2d-226e-4c1d-88b0-6024d5656b02"
+    }
+  ],
+  "ratings": [
+    {
+      "comment": "Wasn't too keen, couldnt see much",
+      "rating": 2,
+      "_id": "d353909d-f3e8-4d6d-a52e-0dedb7e928f5",
+      "poiid": "e073e62d-4ac4-4dba-829d-554f77b59d4a",
+      "userid": "bbb7651e-72ec-4f34-afa4-65679b670db1"
     },
     {
-      "location": "Slieve Foye",
-      "lat": 54.043728,
-      "long": -6.215958,
-      "type": "mineralogical",
-      "description": "A mountain with igneous rocks in Co. Louth Ireland on the Carlingford peninsula",
-      "userid": "ea97f1dd-f0d0-456f-94b2-4e047621a02c",
-      "_id": "2f1c091f-a685-4259-97a9-e87317fd7806"
+      "comment": "Collected plenty of specimens, weather could have been better!",
+      "rating": 3,
+      "_id": "73a92fcd-4bff-4713-925d-dcaeb78cfc24",
+      "poiid": "e073e62d-4ac4-4dba-829d-554f77b59d4a",
+      "userid": "bbb7651e-72ec-4f34-afa4-65679b670db1"
     },
     {
-      "location": "Hook Head",
-      "lat": 52.123344,
-      "long": -6.926058,
-      "type": "palaeo",
-      "description": "A hotbed of exceptionally preserved fossils on the coast of wexford",
-      "userid": "ea97f1dd-f0d0-456f-94b2-4e047621a02c",
-      "_id": "1da45bcf-1b0f-4ea1-8ff1-78b55588bfa7"
-    },
-    {
-      "location": "Tara mines",
-      "lat": 53.65394778470117,
-      "long": -6.720177158598912,
-      "type": "economic",
-      "description": "A lead and zinc mine in the republic of ireland near the town of navan",
-      "_id": "f5668497-c9f1-48f5-9c10-bff02a1ca7f9",
-      "userid": "ea97f1dd-f0d0-456f-94b2-4e047621a02c"
-    },
-    {
-      "location": "Dingle",
-      "lat": "9.03",
-      "long": "8.04",
-      "type": "economic",
-      "description": "wegrgsdg",
-      "userid": "5e3a4f83-d411-4b5e-ad61-17b96a3bd88f",
-      "iconAddress": "/images/economicLocation.jpg",
-      "_id": "92cd6d17-2722-4c71-b890-073170ac52e2"
-    },
-    {
-      "location": "horses mouth",
-      "lat": "9.03",
-      "long": "1.09",
-      "type": "mineralogical",
-      "description": "aefafegs",
-      "userid": "5e3a4f83-d411-4b5e-ad61-17b96a3bd88f",
-      "iconAddress": "/images/mineralLocation.jpg",
-      "_id": "1966a98a-56f5-4815-9e16-7fd0d4f9d38c"
-    },
-    {
-      "location": "listoonvarna",
-      "lat": "52.25833",
-      "long": "-7.11194",
-      "type": "palaeo",
-      "description": "sdgssfvsdfss",
-      "userid": "5e3a4f83-d411-4b5e-ad61-17b96a3bd88f",
-      "iconAddress": "/images/fossilLocation.jpg",
-      "_id": "f5242f9f-33f5-4bc8-b550-dab08eb21f8d"
-    },
-    {
-      "location": "Dingle2",
-      "lat": "9.03",
-      "long": "4.05",
-      "type": "economic",
-      "description": "aefsfbssesd",
-      "userid": "5e3a4f83-d411-4b5e-ad61-17b96a3bd88f",
-      "iconAddress": "/images/economicLocation.jpg",
-      "_id": "36eff6bd-bbaa-49ba-81fc-a0b108556f87"
-    },
-    {
-      "location": "haby",
-      "lat": 9.03,
-      "long": -7.11194,
-      "type": "economic",
-      "description": "adfsfsef",
-      "userid": "5e3a4f83-d411-4b5e-ad61-17b96a3bd88f",
-      "iconAddress": "/images/economicLocation.jpg",
-      "_id": "1d60ad7c-1237-488e-a35e-b8914b8ba635"
+      "comment": "Really loved visiting, trip of a lifetime",
+      "rating": 5,
+      "_id": "be42a441-4fab-40db-90bf-241d77454a1a",
+      "poiid": "e073e62d-4ac4-4dba-829d-554f77b59d4a",
+      "userid": "bbb7651e-72ec-4f34-afa4-65679b670db1"
     }
   ]
 }
