@@ -1,6 +1,6 @@
 import { validate } from "uuid";
 import { db } from "../models/db.js";
-import { userSchema } from "../models/joi-schemas.js";
+import { userSchema, userLoginSchema } from "../models/joi-schemas.js";
 
 export const accountsController = {
 
@@ -46,7 +46,7 @@ export const accountsController = {
       login: {
         auth: false,
         validate : {
-          payload : userSchema,
+          payload : userLoginSchema,
           options : { abortEarly : false},
           failAction : function (request, h, error) {
             return h.view("login-view", {title: "login error, please try again", errors: error.details }).takeover().code(400)
@@ -65,9 +65,9 @@ export const accountsController = {
 
       logout: {
         auth: false,
-        handler: function (request, h){
+        handler: async function (request, h){
           request.cookieAuth.clear();
-          h.redirect("/");
+          return h.redirect("/");
         }
       },
 }

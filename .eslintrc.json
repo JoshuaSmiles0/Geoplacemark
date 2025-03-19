@@ -26,6 +26,9 @@
       "func-names": "off",
       "no-console": "off",
       "import/no-unresolved": "off",
-      "no-await-in-loop" : "off"
+      "no-await-in-loop" : "off",
+      "prefer-destructuring" : "off",
+      "no-shadow" : "off"
+
     }
   }
