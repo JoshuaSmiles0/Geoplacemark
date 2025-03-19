@@ -1,4 +1,3 @@
-import { validate } from "uuid";
 import { db } from "../models/db.js";
 import { userSchema, userLoginSchema } from "../models/joi-schemas.js";
 

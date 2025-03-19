@@ -1,4 +1,5 @@
 import { db } from "../models/db.js";
+import { poiSchema } from "../models/joi-schemas.js";
 import { storeUtils } from "../models/utils.js";
 
 export const dashboardController = {
@@ -17,6 +18,13 @@ export const dashboardController = {
 
 
     addPoi : {
+        validate : {
+            payload : poiSchema,
+            options : { abortEarly : false},
+            failAction : function (request, h, error) {
+                return h.view("dashboard-view", {title: "dashboard error, please try again", errors: error.details }).takeover().code(400)
+                },
+            },
         handler: async function (request, h) {
             const loggedInUser = request.auth.credentials
             const newPoi = {

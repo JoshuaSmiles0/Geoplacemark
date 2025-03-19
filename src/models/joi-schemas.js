@@ -14,9 +14,9 @@ export const userLoginSchema = {
 };
 
 export const poiSchema = {
-    name : Joi.string().required(),
+    location : Joi.string().required(),
     lat :  Joi.number().required(),
     long : Joi.number().required(),
-    type : Joi.string().required(),
-    description: Joi.string().max(250).optional(),
+    type : Joi.string().valid("economic", "palaeo","mineralogical" ).required(),
+    description: Joi.string().max(250).required(),
 }
