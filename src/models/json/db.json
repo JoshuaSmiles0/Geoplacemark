@@ -105,6 +105,16 @@
       "userid": "5e3a4f83-d411-4b5e-ad61-17b96a3bd88f",
       "iconAddress": "/images/economicLocation.jpg",
       "_id": "36eff6bd-bbaa-49ba-81fc-a0b108556f87"
+    },
+    {
+      "location": "haby",
+      "lat": 9.03,
+      "long": -7.11194,
+      "type": "economic",
+      "description": "adfsfsef",
+      "userid": "5e3a4f83-d411-4b5e-ad61-17b96a3bd88f",
+      "iconAddress": "/images/economicLocation.jpg",
+      "_id": "1d60ad7c-1237-488e-a35e-b8914b8ba635"
     }
   ]
 }
