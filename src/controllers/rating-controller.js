@@ -139,5 +139,14 @@ export const ratingController = {
             await db.ratingStore.addRating(poi._id, loggedInUser._id, rating);
             return h.redirect(`/publicPoi/${poi._id}`);
         }
+    },
+
+    deleteRating: {
+        handler: async function (request, h) {
+            const poi = await db.poiStore.getPoiById(request.params.poiId);
+            await db.ratingStore.deleteRatingById(request.params.ratingId);
+            return h.redirect(`/poi/${poi._id}`);
+        }
+
     }
 }

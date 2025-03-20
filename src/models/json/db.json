@@ -38,28 +38,6 @@
       "description": "A lead and zinc mine in the republic of ireland near the town of navan",
       "_id": "89e3a299-413d-44bb-9f8b-75e38d0e7ac3",
       "userid": "d91f0582-ceab-4933-90df-f784b6439652"
-    },
-    {
-      "location": "Dingle",
-      "lat": 52.25833,
-      "long": 1.09,
-      "type": "mineralogical",
-      "description": "sfsdsbrdwgf",
-      "userid": "7df9966d-cfd7-4b9a-9382-911a70f1d5e0",
-      "author": "altus Smiles",
-      "iconAddress": "/images/mineralLocation.jpg",
-      "_id": "1f4fab73-947e-4464-902d-be63430b36d1"
-    },
-    {
-      "location": "listoonvarna",
-      "lat": 9.03,
-      "long": -7.11194,
-      "type": "palaeo",
-      "description": "wegsfbdsr",
-      "userid": "7df9966d-cfd7-4b9a-9382-911a70f1d5e0",
-      "author": "altus Smiles",
-      "iconAddress": "/images/fossilLocation.jpg",
-      "_id": "6104c977-1c4c-4e94-9a64-dd02a75e7c7f"
     }
   ],
   "ratings": [
@@ -90,46 +68,6 @@
       "_id": "58642e2a-819b-4d9a-8afd-27a309faae1d",
       "poiid": "89e3a299-413d-44bb-9f8b-75e38d0e7ac3",
       "userid": "0157ea55-671a-4a4d-8a68-78b50aab6ca3"
-    },
-    {
-      "comment": "sgsdgsd",
-      "rating": "2",
-      "user": "altus Smiles",
-      "ratingIconAddress": "/images/twoStar.png",
-      "date": "2025-03-20 17:44:11.394 ",
-      "_id": "e8da9374-6927-4cf7-8cde-8413637bae43",
-      "poiid": "1f4fab73-947e-4464-902d-be63430b36d1",
-      "userid": "7df9966d-cfd7-4b9a-9382-911a70f1d5e0"
-    },
-    {
-      "comment": "efwdsvssedvsd",
-      "rating": "2",
-      "user": "altus Smiles",
-      "ratingIconAddress": "/images/twoStar.png",
-      "date": "2025-03-20 17:44:32.484 ",
-      "_id": "5a1c35d3-0048-48de-a5b3-e5883b2bec58",
-      "poiid": "1f4fab73-947e-4464-902d-be63430b36d1",
-      "userid": "7df9966d-cfd7-4b9a-9382-911a70f1d5e0"
-    },
-    {
-      "comment": "sdvsfbsffvfv",
-      "rating": "2",
-      "user": "altus Smiles",
-      "ratingIconAddress": "/images/twoStar.png",
-      "date": "2025-03-20 17:44:36.525 ",
-      "_id": "01fed4b5-dda1-402a-a06d-dc42e54bf3a7",
-      "poiid": "1f4fab73-947e-4464-902d-be63430b36d1",
-      "userid": "7df9966d-cfd7-4b9a-9382-911a70f1d5e0"
-    },
-    {
-      "comment": "sbsffbdfbdfvcvbxf",
-      "rating": "3",
-      "user": "altus Smiles",
-      "ratingIconAddress": "/images/threeStar.png",
-      "date": "2025-03-20 17:45:10.028 ",
-      "_id": "7cc56b53-6cff-42ce-9586-e79c4d3b1bb3",
-      "poiid": "1f4fab73-947e-4464-902d-be63430b36d1",
-      "userid": "7df9966d-cfd7-4b9a-9382-911a70f1d5e0"
     }
   ]
 }

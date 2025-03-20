@@ -69,4 +69,16 @@ export const accountsController = {
           return h.redirect("/");
         }
       },
+
+      showUpdateDetails: {
+        handler: async function (request, h){
+          const loggedInUser = request.auth.credentials;
+          const user = await db.userStore.getUserById(loggedInUser._id);
+          const viewData = {
+            title: "Update User Details",
+            user: user,
+          }
+          return h.view("settings-view", viewData);
+        }
+      }
 }
