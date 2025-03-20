@@ -83,6 +83,13 @@ export const accountsController = {
       },
 
       updateUser: {
+        validate : {
+              payload : userSchema,
+              options : { abortEarly : false},
+              failAction : function (request, h, error) {
+                  return h.view("error-view", {title: "Update error, please try again", errors: error.details }).takeover().code(400)
+                  },
+                  },
         handler: async function (request, h){
           const user = await db.userStore.getUserById(request.params.id);
           const newDetails = {
