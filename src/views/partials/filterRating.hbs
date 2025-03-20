@@ -1,0 +1,25 @@
+<section class="columns">
+    <div class="column is-4">
+      <form action="/poi/{{poi._id}}/filtered" method="POST">
+      <div class="field">
+      <label class="label">Select rating to filter by</label> 
+      <div class="select">
+        <select name="rating">
+            <option value="1">One Star</option>
+            <option value="2">Two Star</option>
+            <option value="3">Three Star</option>
+            <option value="4">Four Star</option>
+            <option value="5">Five Star</option>
+        </select>
+      </div>
+      </div>
+      <div class="field is-grouped">
+        <button class="button is-info">filter</button>
+      </div>
+      </form>
+      <div class="mt-2">
+        <a href="/poi/{{poi._id}}">
+          <button class="button is-danger">Clear</button>
+        </a>
+      </div>
+</section>

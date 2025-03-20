@@ -2,6 +2,7 @@ import { welcomeController } from "./controllers/welcome-controller.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { publicDashboardController } from "./controllers/public-dashboard-controller.js";
+import { ratingController } from "./controllers/rating-controller.js";
 
 
 export const webRoutes = [
@@ -17,4 +18,9 @@ export const webRoutes = [
     { method: "POST", path: "/dashboard/filtered", config: dashboardController.filterPois},
     { method: "GET", path: "/publicDashboard", config: publicDashboardController.index},
     { method: "POST", path: "/publicDashboard/filtered", config: publicDashboardController.filterPublicPois},
+    { method: "GET", path: "/poi/{id}", config: ratingController.index},
+    { method: "GET", path: "/publicPoi/{id}", config: ratingController.publicRatings},
+    { method: "POST", path: "/publicPoi/{id}/addRating", config: ratingController.addRating },
+    { method: "POST", path: "/poi/{id}/filtered", config: ratingController.filterRatings},
+    { method: "POST", path: "/publicPoi/{id}/filtered", config: ratingController.filterPublicRatings},
 ];
