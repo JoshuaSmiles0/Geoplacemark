@@ -37,6 +37,21 @@ export const ratingJsonStore = {
         return poiR;
     },
 
+    async getRatingsByRatingValue(value) {
+        await db.read();
+        let rR = db.data.ratings.filter((rating) => rating.rating === value);
+        if (rR === undefined) rR = null;
+        return rR;
+    },
+
+    async getRatingsByPoiIdRating(poiid, rating) {
+        await db.read();
+        const ratingP = db.data.ratings.filter((rating) => rating.poiid === poiid);
+        let ratingPRatings = ratingP.filter((ratingP) => ratingP.rating === rating);
+        if (ratingPRatings === undefined) ratingPRatings = null;
+        return ratingPRatings;
+    },
+
     async getRatingById(id) {
         await db.read();
         let r = db.data.ratings.find((rating) => rating._id === id);

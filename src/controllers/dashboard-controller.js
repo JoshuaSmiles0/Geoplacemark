@@ -27,6 +27,7 @@ export const dashboardController = {
             },
         handler: async function (request, h) {
             const loggedInUser = request.auth.credentials
+            const user = await db.userStore.getUserById(loggedInUser._id);
             const newPoi = {
                 location : request.payload.location,
                 lat :  request.payload.lat,
@@ -34,6 +35,7 @@ export const dashboardController = {
                 type : request.payload.type,
                 description: request.payload.description,
                 userid: loggedInUser._id,
+                author: `${user.firstName} ${user.surname}`,
                 iconAddress: storeUtils.getTypeIcon(request.payload.type)
             };
             await db.poiStore.addPoi(newPoi);

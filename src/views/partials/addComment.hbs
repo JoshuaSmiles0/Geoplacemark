@@ -1,0 +1,31 @@
+
+<h2 class="subtitle mt-4">Rate this geosite!</h2>
+  <form action="/publicPoi/{{poi._id}}/addRating" method="POST">
+  <div class="field is-horizontal">
+    <div class="field-body">
+    <div class="field">
+        <label class="label">Comment</label><input class="input" type="text" placeholder="Enter Your Comment" name="comment">
+    </div>
+    <div class="field">
+      <label class="label">Rating</label> 
+      <div class="select">
+        <select name="rating">
+            <option value=1>One Star</option>
+            <option value=2>Two Star</option>
+            <option value=3>Three Star</option>
+            <option value=4>Four Star</option>
+            <option value=5>Five Star</option>
+        </select>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="field is-grouped">
+      <button class="button is-info">Post</button>
+    </div>
+</form>
+
+
+
+
+

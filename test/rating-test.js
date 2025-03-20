@@ -67,6 +67,16 @@ test("Get Ratings by userId - failure", async () => {
     assert.isEmpty(desiredRating);
 });
 
+test("Get Ratings by rating value - success", async () => {
+    const desiredRating = await db.ratingStore.getRatingsByRatingValue(testRatings[0].rating);
+    assert.equal(desiredRating.length, 1);
+});
+
+test("Get Ratings by rating - failure", async () => {
+const desiredRating = await db.ratingStore.getRatingsByRatingValue("bad rating");
+assert.isEmpty(desiredRating);
+});
+
 test("Get Ratings by poiId - success", async () => {
     const desiredRating = await db.ratingStore.getRatingsByPoiId(poi._id);
     assert.equal(desiredRating.length, testRatings.length);
@@ -135,4 +145,38 @@ test("delete rating by user id - success", async() => {
         const updatedRatings = await db.ratingStore.getAllRatings();
         assert.equal(updatedRatings.length,testRatings.length);
     });
+
+        test("Get Rating by poiId and rating - success", async () => {
+            const desiredRatings = await db.ratingStore.getRatingsByPoiIdRating(poi._id, testRatings[0].rating);
+            assert.equal(desiredRatings.length, 1);
+        });
+    
+        test("Get Rating By poiId and rating - failure both params", async () => {
+            const newRating = testRating;
+            await db.ratingStore.addRating(poi._id, user._id, newRating);
+            const allRatings = await db.ratingStore.getAllRatings();
+            assert.equal(allRatings.length, testRatings.length + 1);
+            const returnedRating = await db.ratingStore.getRatingsByPoiIdRating("bad id", "bad rating");
+            assert.isEmpty(returnedRating);
+        });
+    
+        test("Get Rating By poiId and rating - failure _id param", async () => {
+            const newRating = testRating;
+            await db.ratingStore.addRating(poi._id, user._id, newRating);
+            const allRatings = await db.ratingStore.getAllRatings();
+            assert.equal(allRatings.length, testRatings.length + 1);
+            const returnedRating = await db.ratingStore.getRatingsByPoiIdRating("bad id", testRating.rating);
+            assert.isEmpty(returnedRating);
+        });
+    
+        test("Get Rating By poiId and rating - failure rating param", async () => {
+            const newRating = testRating;
+            await db.ratingStore.addRating(poi._id, user._id, newRating);
+            const allRatings = await db.ratingStore.getAllRatings();
+            assert.equal(allRatings.length, testRatings.length + 1);
+            const returnedRating = await db.ratingStore.getRatingsByPoiIdRating(testRating.poiid, "bad rating");
+            assert.isEmpty(returnedRating);
+        });
+
+    
 });
