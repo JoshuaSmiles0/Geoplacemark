@@ -26,4 +26,6 @@ export const webRoutes = [
     { method: "GET", path: "/poi/{poiId}/deleteRating/{ratingId}", config: ratingController.deleteRating},
     { method: "GET", path: "/poi/{id}/deletePoi", config: dashboardController.deletePoi},
     { method: "GET", path: "/settings", config: accountsController.showUpdateDetails},
+    { method: "POST", path: "/updateUser/{id}", config: accountsController.updateUser},
+    { method: "GET", path: "/deleteUser/{id}", config: accountsController.deleteUser},
 ];
