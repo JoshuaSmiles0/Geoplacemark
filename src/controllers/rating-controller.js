@@ -1,5 +1,6 @@
 import { db } from "../models/db.js";
 import { storeUtils } from "../models/utils.js";
+import { ratingSchema } from "../models/joi-schemas.js";
 
 
 
@@ -124,6 +125,13 @@ export const ratingController = {
     
 
     addRating: {
+        validate : {
+                    payload : ratingSchema,
+                    options : { abortEarly : false},
+                    failAction : function (request, h, error) {
+                        return h.view("error-view", {title: "rating error, please try again", errors: error.details }).takeover().code(400)
+                        },
+                    },
         handler: async function (request,h) {
             const poi = await db.poiStore.getPoiById(request.params.id);
             const loggedInUser = request.auth.credentials;

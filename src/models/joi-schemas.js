@@ -23,6 +23,6 @@ export const poiSchema = {
 
 export const ratingSchema = {
     comment : Joi.string().max(250).required(),
-    rating : Joi.number().valid(1,2,3,4,5).required(),
+    rating : Joi.string().valid("1","2","3","4","5").required(),
 };
 
