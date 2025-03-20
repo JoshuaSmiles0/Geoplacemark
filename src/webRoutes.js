@@ -23,4 +23,7 @@ export const webRoutes = [
     { method: "POST", path: "/publicPoi/{id}/addRating", config: ratingController.addRating },
     { method: "POST", path: "/poi/{id}/filtered", config: ratingController.filterRatings},
     { method: "POST", path: "/publicPoi/{id}/filtered", config: ratingController.filterPublicRatings},
+    { method: "GET", path: "/poi/{poiId}/deleteRating/{ratingId}", config: ratingController.deleteRating},
+    { method: "GET", path: "/poi/{id}/deletePoi", config: dashboardController.deletePoi},
+    { method: "GET", path: "/settings", config: accountsController.showUpdateDetails},
 ];

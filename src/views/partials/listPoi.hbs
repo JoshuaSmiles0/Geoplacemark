@@ -45,7 +45,12 @@
     </div>
     <a href="/poi/{{_id}}" class="button">
       <span class="icon is-small">
-        <i class="fas fa-folder-open"></i>
+       {{> openIcon}}
+      </span>
+    </a>
+    <a href="/poi/{{_id}}/deletePoi" class="button">
+      <span class="icon is-small">
+       {{> deleteIcon }}
       </span>
     </a>
   </div>

@@ -56,4 +56,14 @@ export const dashboardController = {
             return h.view("dashboard-view", viewData)
         }
     },
+
+
+    deletePoi : {
+        handler: async function (request, h) {
+            const poi = await db.poiStore.getPoiById(request.params.id);
+            await db.ratingStore.deleteRatingsByPoiId(poi._id);
+            await db.poiStore.deletePoiById(poi._id);
+            return h.redirect("/dashboard")
+        }
+    }
 };
