@@ -35,7 +35,7 @@ export const updatedUser = {
 };
 
 export const testPoi = {
-    name: "Tara mines",
+    location: "Tara mines",
     lat:  53.65394778470117,
     long: -6.720177158598912,
     type: "economic",
@@ -65,4 +65,28 @@ export const testPois = [
         type: "palaeo",
         description: "A hotbed of exceptionally preserved fossils on the coast of wexford",
     },
+];
+
+export const testRating = {
+    comment: "Really loved visiting, the rocks were fascinating",
+    rating: "5"
+};
+
+
+export const testRatings = [
+    {
+       comment: "Wasn't too keen, couldnt see much",
+       rating: "2"
+
+    },
+    {
+       comment: "Collected plenty of specimens, weather could have been better!",
+       rating: "3"
+
+    },
+    {
+       comment: "Really loved visiting, trip of a lifetime",
+       rating: "5"
+
+    }
 ];

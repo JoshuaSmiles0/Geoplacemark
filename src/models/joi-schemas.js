@@ -19,4 +19,10 @@ export const poiSchema = {
     long : Joi.number().required(),
     type : Joi.string().valid("economic", "palaeo","mineralogical" ).required(),
     description: Joi.string().max(250).required(),
-}
+};
+
+export const ratingSchema = {
+    comment : Joi.string().max(250).required(),
+    rating : Joi.number().valid(1,2,3,4,5).required(),
+};
+
