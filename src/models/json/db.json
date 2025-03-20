@@ -23,10 +23,10 @@
     },
     {
       "firstName": "altus",
-      "surname": "Smiles",
+      "surname": "chompsky",
       "email": "altusjonson@gmail.com",
       "password": "1234",
-      "_id": "7df9966d-cfd7-4b9a-9382-911a70f1d5e0"
+      "_id": "ff30bd76-9f9c-43d5-bdfb-6ee39111d03b"
     }
   ],
   "pois": [
@@ -38,17 +38,6 @@
       "description": "A lead and zinc mine in the republic of ireland near the town of navan",
       "_id": "89e3a299-413d-44bb-9f8b-75e38d0e7ac3",
       "userid": "d91f0582-ceab-4933-90df-f784b6439652"
-    },
-    {
-      "location": "Dingle",
-      "lat": 9.03,
-      "long": -6.14,
-      "type": "palaeo",
-      "description": "wgdsbers",
-      "userid": "7df9966d-cfd7-4b9a-9382-911a70f1d5e0",
-      "author": "altus Smiles",
-      "iconAddress": "/images/fossilLocation.jpg",
-      "_id": "f82d8021-d57e-4ded-98d8-a11f5750997a"
     }
   ],
   "ratings": [
@@ -79,6 +68,16 @@
       "_id": "58642e2a-819b-4d9a-8afd-27a309faae1d",
       "poiid": "89e3a299-413d-44bb-9f8b-75e38d0e7ac3",
       "userid": "0157ea55-671a-4a4d-8a68-78b50aab6ca3"
+    },
+    {
+      "comment": "sdsdbsvds",
+      "rating": "3",
+      "user": "altus Smiles",
+      "ratingIconAddress": "/images/threeStar.png",
+      "date": "2025-03-20 22:05:40.748 ",
+      "_id": "e249e49d-7df4-41c3-8fe1-27f0b03414c6",
+      "poiid": "01983f26-0e63-4c57-9f12-18e43f9347ea",
+      "userid": "13571d4a-6751-47ea-9c17-2859352984cd"
     }
   ]
 }
