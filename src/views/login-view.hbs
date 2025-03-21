@@ -2,6 +2,16 @@
 
 <section class="section">
   <h1 class="title">{{title}}</h1>
+  {{#if logInError}}
+  <div class = "box content">
+    <p class="subtitle">
+        There appears to be an issue.
+    </p>
+    <ul>
+      <li>Email or password incorrect, please try again</li>
+    </ul>
+    </div>
+    {{/if}}
   <form action="/loginUser" method="POST">
     <div class="field">
       <label class="label">Email</label> <input class="input" type="text" placeholder="Enter email address" name="email">

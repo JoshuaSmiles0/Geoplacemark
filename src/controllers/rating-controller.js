@@ -193,8 +193,16 @@ export const ratingController = {
     
 
     updateUserEngagement: {
+      validate : {
+        payload : ratingSchema,
+        options : { abortEarly : false},
+        failAction : function (request, h, error) {
+            return h.view("error-view", {title: " update rating error, please try again", errors: error.details }).takeover().code(400)
+            },
+        },
       handler: async function (request,h) {
         const rating = await db.ratingStore.getRatingById(request.params.id);
+        const date = new Date();
             const newDetails = {
                 comment : request.payload.comment,
                 rating : request.payload.rating,

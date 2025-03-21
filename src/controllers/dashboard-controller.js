@@ -22,7 +22,7 @@ export const dashboardController = {
             payload : poiSchema,
             options : { abortEarly : false},
             failAction : function (request, h, error) {
-                return h.view("dashboard-view", {title: "dashboard error, please try again", errors: error.details }).takeover().code(400)
+                return h.view("error-view", {title: "failed to add poi, please try again", errors: error.details }).takeover().code(400)
                 },
             },
         handler: async function (request, h) {
@@ -79,6 +79,13 @@ export const dashboardController = {
     },
 
     updatePoi: {
+        validate : {
+            payload : poiSchema,
+            options : { abortEarly : false},
+            failAction : function (request, h, error) {
+                return h.view("error-view", {title: "failed to add poi, please try again", errors: error.details }).takeover().code(400)
+                },
+            },
         handler: async function (request, h) {
             const poi = await db.poiStore.getPoiById(request.params.id);
             const newDetails = {
