@@ -1,0 +1,70 @@
+{{> nav active="settings" }}
+
+<section class="section">
+<h1 class ="title is-underlined has-text-centered">
+  {{title}}
+</h1>
+<div class= "box">
+  <h2 class = "subtitle">
+    Current User Details
+  </h2>
+  <table class = "table is-fullwidth">
+   <thead>
+    <trow>
+      <th>First Name</th>
+      <th>Surname</th>
+      <th>Email</th>
+      <th>Password</th>
+    </trow>
+   </thead>
+   <tbody>
+    <tr>
+      <td>
+        {{user.firstName}}
+      </td>
+      <td>
+        {{user.surname}}
+      </td>
+      <td>
+        {{user.email}}
+      </td>
+      <td id = "password" >
+        **********
+      </td>
+     </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+<section class="section">
+<h2 class="subtitle">Enter new details</h2>
+<form action="/updateUser/{{user._id}}" method="POST">
+<div class="field is-horizontal">
+    <div class="field-body">
+    <div class="field">
+        <label class="label">First Name</label><input class="input" type="text" placeholder="Enter first name" name="firstName">
+    </div>
+    <div class="field">
+        <label class="label">Surname</label><input class="input" type="text" placeholder="Enter last name" name="surname">
+    </div>
+    </div>
+    </div>
+    <div class="field">
+      <label class="label">Email</label> <input class="input" type="text" placeholder="Enter email address" name="email">
+    </div>
+    <div class="field">
+      <label class="label">Password</label> <input class="input" type="password" placeholder="Enter Password" name="password">
+    </div>
+    <div class="field is-grouped">
+      <button class="button is-info">Submit</button>
+    </div>
+  </form>
+  </section>
+  <section class="section">
+    <h2 class="subtitle">Terminate Account</h2>
+    <div class="mt-2">
+        <a href="/deleteUser/{{user._id}}">
+          <button class="button is-danger">Permanently Delete Account</button>
+        </a>
+      </div>
+  </section>

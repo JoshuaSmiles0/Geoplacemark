@@ -42,6 +42,14 @@ export const testPoi = {
     description: "A lead and zinc mine in the republic of ireland near the town of navan",
 };
 
+export const updatedPoi = {
+    location: "Listoonvarna",
+    lat:  54.65394778470117,
+    long: -7.720177158598912,
+    type: "palaeo",
+    description: "A Fossil location in the hills",
+};
+
 
 export const testPois = [
     {
@@ -70,6 +78,11 @@ export const testPois = [
 export const testRating = {
     comment: "Really loved visiting, the rocks were fascinating",
     rating: "5"
+};
+
+export const updatedRating = {
+    comment: "Did not like this place at all",
+    rating: "1"
 };
 
 

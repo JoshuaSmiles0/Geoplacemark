@@ -72,11 +72,14 @@ export const poiJsonStore = {
     },
 
 
-
-
-
-
-
-
-
-}
+    async updatePoi(poi, updatedPoi) {
+        if(poi !== null){
+            poi.location = updatedPoi.location
+            poi.lat = updatedPoi.lat
+            poi.long = updatedPoi.long
+            poi.type = updatedPoi.type
+            poi.description = updatedPoi.description
+            await db.write()
+    }
+},
+};

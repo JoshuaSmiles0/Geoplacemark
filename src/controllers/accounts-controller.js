@@ -69,4 +69,48 @@ export const accountsController = {
           return h.redirect("/");
         }
       },
+
+      showUpdateDetails: {
+        handler: async function (request, h){
+          const loggedInUser = request.auth.credentials;
+          const user = await db.userStore.getUserById(loggedInUser._id);
+          const viewData = {
+            title: "Update User Details",
+            user: user,
+          }
+          return h.view("settings-view", viewData);
+        }
+      },
+
+      updateUser: {
+        validate : {
+              payload : userSchema,
+              options : { abortEarly : false},
+              failAction : function (request, h, error) {
+                  return h.view("error-view", {title: "Update error, please try again", errors: error.details }).takeover().code(400)
+                  },
+                  },
+        handler: async function (request, h){
+          const user = await db.userStore.getUserById(request.params.id);
+          const newDetails = {
+            firstName: request.payload.firstName,
+            surname: request.payload.surname,
+            email: request.payload.email,
+            password: request.payload.password,
+          }
+          await db.userStore.updateUserDetails(user, newDetails);
+          request.cookieAuth.clear();
+          return h.redirect("/login");
+        }
+      },
+
+      deleteUser: {
+        handler: async function (request, h){
+          const user = await db.userStore.getUserById(request.params.id);
+          await db.userStore.deleteUserById(user._id);
+          await db.poiStore.deletePoiByUserId(user._id);
+          await db.ratingStore.deleteRatingsByUserId(user._id);
+          return h.redirect("/")
+        }
+      }
 }

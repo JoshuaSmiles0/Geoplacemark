@@ -5,28 +5,28 @@
       "surname": "reilly",
       "email": "paddyR@outlook.com",
       "password": "secret",
-      "_id": "032cf8ff-3a3c-4bd5-b044-d19d40bb06ec"
+      "_id": "aadc56a5-b807-4a01-b9c4-2ef08bda9242"
     },
     {
       "firstName": "Jenny",
       "surname": "Rourke",
       "email": "jRourke@gmail.com",
       "password": "secret",
-      "_id": "4e3d716f-a1c2-45a2-bb71-111f30bf7d16"
+      "_id": "bc08c5ef-de19-4580-8276-93d3335f08af"
     },
     {
       "firstName": "Fran",
       "surname": "Ciss",
       "email": "FC@yahoo.com",
       "password": "secret",
-      "_id": "1af99264-f4ed-44e6-8dae-ba808e09fa62"
+      "_id": "d54cb8bc-1388-40cb-80ed-d0b7211a122b"
     },
     {
       "firstName": "altus",
       "surname": "Smiles",
       "email": "altusjonson@gmail.com",
       "password": "1234",
-      "_id": "7df9966d-cfd7-4b9a-9382-911a70f1d5e0"
+      "_id": "7f8fb999-fc55-44ee-a546-b13f1d8c1be9"
     }
   ],
   "pois": [
@@ -36,38 +36,42 @@
       "long": -6.720177158598912,
       "type": "economic",
       "description": "A lead and zinc mine in the republic of ireland near the town of navan",
-      "_id": "89e3a299-413d-44bb-9f8b-75e38d0e7ac3",
-      "userid": "d91f0582-ceab-4933-90df-f784b6439652"
+      "_id": "fef7cce0-4c2a-4164-882f-0e8be043046f",
+      "userid": "e1c60c42-bbd1-4c58-9585-9ff6918ba519"
+    },
+    {
+      "location": "horses mouth",
+      "lat": "9.03",
+      "long": "-7.11194",
+      "type": "mineralogical",
+      "description": "\\acsadsddvz",
+      "userid": "7f8fb999-fc55-44ee-a546-b13f1d8c1be9",
+      "author": "altus Smiles",
+      "iconAddress": "/images/mineralLocation.jpg",
+      "_id": "5c204bdf-4440-447d-82ba-a2e1e424d686"
     }
   ],
   "ratings": [
     {
       "comment": "Wasn't too keen, couldnt see much",
       "rating": "2",
-      "_id": "ecdb163b-dd75-4b80-a223-d64af073e357",
-      "poiid": "89e3a299-413d-44bb-9f8b-75e38d0e7ac3",
-      "userid": "0157ea55-671a-4a4d-8a68-78b50aab6ca3"
+      "_id": "eb5c4ac1-9b61-47fe-9bc9-06dbed95d26d",
+      "poiid": "fef7cce0-4c2a-4164-882f-0e8be043046f",
+      "userid": "3ea00288-cf5b-4021-9597-79e2de3e41aa"
     },
     {
       "comment": "Collected plenty of specimens, weather could have been better!",
       "rating": "3",
-      "_id": "81678823-bdcc-4c16-9351-b72edb6e05c9",
-      "poiid": "89e3a299-413d-44bb-9f8b-75e38d0e7ac3",
-      "userid": "0157ea55-671a-4a4d-8a68-78b50aab6ca3"
+      "_id": "f6438910-ba2f-4d78-bf3e-9a309d8f243c",
+      "poiid": "fef7cce0-4c2a-4164-882f-0e8be043046f",
+      "userid": "3ea00288-cf5b-4021-9597-79e2de3e41aa"
     },
     {
       "comment": "Really loved visiting, trip of a lifetime",
       "rating": "5",
-      "_id": "8a9246aa-094d-433c-ab5e-0277a2ae2324",
-      "poiid": "89e3a299-413d-44bb-9f8b-75e38d0e7ac3",
-      "userid": "0157ea55-671a-4a4d-8a68-78b50aab6ca3"
-    },
-    {
-      "comment": "Really loved visiting, the rocks were fascinating",
-      "rating": "5",
-      "_id": "58642e2a-819b-4d9a-8afd-27a309faae1d",
-      "poiid": "89e3a299-413d-44bb-9f8b-75e38d0e7ac3",
-      "userid": "0157ea55-671a-4a4d-8a68-78b50aab6ca3"
+      "_id": "a10e4c9d-9d42-400d-a3aa-33bff334c74d",
+      "poiid": "fef7cce0-4c2a-4164-882f-0e8be043046f",
+      "userid": "3ea00288-cf5b-4021-9597-79e2de3e41aa"
     }
   ]
 }

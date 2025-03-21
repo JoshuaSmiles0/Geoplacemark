@@ -1,4 +1,4 @@
-{{> nav }}
+{{> nav active="mySites" }}
 <h1 class="title is-underlined has-text-centered mt-4">{{title}}</h1>
 <h2 class="subtitle">Posted by {{poi.author}}</h2>
 <div class="columns">
@@ -12,6 +12,9 @@
 </div>
 <div class="box">
    {{> poiDetails }}
+</div>
+<div class="box">
+{{> ratingMetricsGraph}}
 </div>
 <h2 class="subtitle mt-4">Comments</h2>
 {{> filterRating }}

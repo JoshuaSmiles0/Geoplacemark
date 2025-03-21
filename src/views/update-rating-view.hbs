@@ -1,0 +1,63 @@
+{{> nav active = "myEngagement"}}
+
+
+<section class="section">
+<h1 class ="title is-underlined has-text-centered">
+  {{title}}
+</h1>
+<div class= "box">
+  <h2 class = "subtitle">
+    Current Rating Details
+  </h2>
+  <table class = "table is-fullwidth">
+   <thead>
+    <trow>
+      <th>Location</th>
+      <th>rating</th>
+      <th>comment</th>
+    </trow>
+   </thead>
+   <tbody>
+    <tr>
+      <td>
+        {{rating.locationName}}
+      </td>
+      <td>
+        <img src="{{rating.ratingIconAddress}}" alt="rating">
+      </td>
+      <td>
+        {{rating.comment}}
+      </td>
+     </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+<section class="section">
+<h2 class="subtitle mt-4">Enter new rating</h2>
+  <form action="/engagement/commitRatingEdit/{{rating._id}}" method="POST">
+  <div class="field is-horizontal">
+    <div class="field-body">
+    <div class="field">
+        <label class="label">Comment</label><input class="input" type="text" placeholder="Enter Your Comment" name="comment">
+    </div>
+    <div class="field">
+      <label class="label">Rating</label> 
+      <div class="select">
+        <select name="rating">
+            <option value=1>One Star</option>
+            <option value=2>Two Star</option>
+            <option value=3>Three Star</option>
+            <option value=4>Four Star</option>
+            <option value=5>Five Star</option>
+        </select>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="field is-grouped">
+      <button class="button is-info">Update</button>
+    </div>
+</form>
+
+  </section>
