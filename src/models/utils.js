@@ -39,7 +39,7 @@ export const storeUtils = {
                 ratingIconAddress = "/images/fiveStar.png";
             break;
             default:
-                ratingIconAddress = "/images/geoplacemarkLogo.jpg";
+                ratingIconAddress = "/images/notRated.png";
         }
         return ratingIconAddress;
     },
