@@ -1,0 +1,26 @@
+{{> welcomeNav active="admin" }}
+
+<section class="section">
+  <h1 class="title">{{title}}</h1>
+  {{#if logInError}}
+  <div class = "box content">
+    <p class="subtitle">
+        There appears to be an issue.
+    </p>
+    <ul>
+      <li>Admin credentials incorrect, please try again</li>
+    </ul>
+    </div>
+    {{/if}}
+  <form action="/loginAdmin" method="POST">
+    <div class="field">
+      <label class="label">Email</label> <input class="input" type="text" placeholder="Enter email address" name="email">
+    </div>
+    <div class="field">
+      <label class="label">Password</label> <input class="input" type="password" placeholder="Enter Password" name="password">
+    </div>
+    <div class="field is-grouped">
+      <button class="button is-info">Submit</button>
+    </div>
+  </form>
+</section>

@@ -1,88 +1,13 @@
 {
   "users": [
     {
-      "firstName": "Paddy",
-      "surname": "reilly",
-      "email": "paddyR@outlook.com",
-      "password": "secret",
-      "_id": "ffe920b0-b9fb-48be-a2a2-55adc35d2d90"
-    },
-    {
-      "firstName": "Jenny",
-      "surname": "Rourke",
-      "email": "jRourke@gmail.com",
-      "password": "secret",
-      "_id": "531724d0-0961-41ce-bff5-5beea714f430"
-    },
-    {
-      "firstName": "Fran",
-      "surname": "Ciss",
-      "email": "FC@yahoo.com",
-      "password": "secret",
-      "_id": "f16fe713-94f3-4e7d-b38e-548024b410b7"
-    },
-    {
-      "firstName": "altus",
-      "surname": "Smiles",
-      "email": "altusjonson@gmail.com",
-      "password": "1234",
-      "_id": "db2bd23c-4e23-4611-adea-14dcbeba4709"
+      "firstName": "admin",
+      "surname": "admin",
+      "email": "admin@geoplacemark.com",
+      "password": "@dmin&ge0placemark",
+      "_id": "35e54d1b-bbb7-4fab-996d-bfd9160bd9d6"
     }
   ],
-  "pois": [
-    {
-      "location": "Tara mines",
-      "lat": 53.65394778470117,
-      "long": -6.720177158598912,
-      "type": "economic",
-      "description": "A lead and zinc mine in the republic of ireland near the town of navan",
-      "_id": "e983e798-ead8-47cb-9388-ffc930029b74",
-      "userid": "d3166407-02c2-4272-8852-96604618745d"
-    },
-    {
-      "location": "Dingle",
-      "lat": 9.03,
-      "long": -7.11194,
-      "type": "mineralogical",
-      "description": "zvdvsdcv",
-      "userid": "db2bd23c-4e23-4611-adea-14dcbeba4709",
-      "author": "altus Smiles",
-      "iconAddress": "/images/mineralLocation.jpg",
-      "_id": "866ffcca-6c4a-45e5-81f6-29241e7ef451"
-    }
-  ],
-  "ratings": [
-    {
-      "comment": "Wasn't too keen, couldnt see much",
-      "rating": "2",
-      "_id": "c42c665a-6007-4f42-8c1e-0dfa4b1dd622",
-      "poiid": "e983e798-ead8-47cb-9388-ffc930029b74",
-      "userid": "00cf190b-0a7d-4443-902c-53b0969b14e2"
-    },
-    {
-      "comment": "Collected plenty of specimens, weather could have been better!",
-      "rating": "3",
-      "_id": "e9b11e32-f31b-43bd-8616-0c902163d9ce",
-      "poiid": "e983e798-ead8-47cb-9388-ffc930029b74",
-      "userid": "00cf190b-0a7d-4443-902c-53b0969b14e2"
-    },
-    {
-      "comment": "Really loved visiting, trip of a lifetime",
-      "rating": "5",
-      "_id": "5715835d-d802-4fb1-a75e-1c116a57d204",
-      "poiid": "e983e798-ead8-47cb-9388-ffc930029b74",
-      "userid": "00cf190b-0a7d-4443-902c-53b0969b14e2"
-    },
-    {
-      "comment": "123456",
-      "rating": "1",
-      "user": "altus Smiles",
-      "locationName": "Tara mines",
-      "ratingIconAddress": "/images/oneStar.png",
-      "date": "2025-03-21 14:59:18.449 ",
-      "_id": "1d4e900b-6928-434f-8a29-e94d319ccb6f",
-      "poiid": "e983e798-ead8-47cb-9388-ffc930029b74",
-      "userid": "db2bd23c-4e23-4611-adea-14dcbeba4709"
-    }
-  ]
+  "pois": [],
+  "ratings": []
 }

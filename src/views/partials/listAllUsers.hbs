@@ -1,0 +1,44 @@
+{{#each users}}
+<div class="columns">
+<div class="column">
+<div class= "box">
+  <h2 class = "subtitle">
+    {{email}}
+  </h2>
+  <table class = "table is-fullwidth">
+   <thead>
+    <trow>
+      <th>First Name</th>
+      <th>Surname</th>
+      <th>Email</th>
+      <th>Password</th>
+    </trow>
+   </thead>
+   <tbody>
+    <tr>
+      <td>
+        {{firstName}}
+      </td>
+      <td>
+        {{surname}}
+      </td>
+      <td>
+        {{email}}
+      </td>
+      <td id = "password" >
+        **********
+      </td>
+     </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<div class="column is-0">
+    <a href="/manageUsers/deleteUser/{{_id}}">
+    {{> deleteIcon}}
+    </a>
+</div>
+</div>
+
+
+{{/each}}
