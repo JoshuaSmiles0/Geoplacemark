@@ -1,0 +1,20 @@
+{{#each ratings}}
+<div class="columns">
+<div class="column">
+<article class="message is-info pb-2">
+    <div class="message-header">
+        <p>{{user}} - {{locationName}}</p>
+        <img src="{{ratingIconAddress}}" alt="rating">
+    </div>
+    <div class="message-body">
+        <p>{{comment}}</p>
+    </div>
+</article>
+</div>
+<div class="column is-0">
+    <a href="/manageRatings/deleteRating/{{_id}}">
+    {{> deleteIcon}}
+    </a>
+    </div>
+</div>
+{{/each}}
