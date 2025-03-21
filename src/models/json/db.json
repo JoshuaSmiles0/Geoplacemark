@@ -1,66 +1,13 @@
 {
   "users": [
     {
-      "firstName": "Paddy",
-      "surname": "reilly",
-      "email": "paddyR@outlook.com",
-      "password": "secret",
-      "_id": "77a20599-c453-4b51-a2e2-50fc30d6e826"
-    },
-    {
-      "firstName": "Jenny",
-      "surname": "Rourke",
-      "email": "jRourke@gmail.com",
-      "password": "secret",
-      "_id": "5d210847-22a5-4d31-921b-2ab5f0ed0493"
-    },
-    {
-      "firstName": "Fran",
-      "surname": "Ciss",
-      "email": "FC@yahoo.com",
-      "password": "secret",
-      "_id": "cd52bb91-843d-49ca-898d-90741b7224fe"
-    },
-    {
-      "firstName": "altus",
-      "surname": "Smiles",
-      "email": "altusjonson@gmail.com",
-      "password": "1234",
-      "_id": "0ee2f62c-34e0-44f5-921a-ebbccb9a2d2e"
+      "firstName": "admin",
+      "surname": "admin",
+      "email": "admin@geoplacemark.com",
+      "password": "@dmin&ge0placemark",
+      "_id": "35e54d1b-bbb7-4fab-996d-bfd9160bd9d6"
     }
   ],
-  "pois": [
-    {
-      "location": "Tara mines",
-      "lat": 53.65394778470117,
-      "long": -6.720177158598912,
-      "type": "economic",
-      "description": "A lead and zinc mine in the republic of ireland near the town of navan",
-      "_id": "ec20d7af-98bc-4b52-beb3-7218c3b4d52e",
-      "userid": "04457c41-c32c-45df-bb15-f0200d3893b8"
-    }
-  ],
-  "ratings": [
-    {
-      "comment": "Wasn't too keen, couldnt see much",
-      "rating": "2",
-      "_id": "2553d4dd-d58b-464f-9b2e-5e2c249e6876",
-      "poiid": "ec20d7af-98bc-4b52-beb3-7218c3b4d52e",
-      "userid": "a8566540-3ac7-40b6-8a61-a8214c70221b"
-    },
-    {
-      "comment": "Collected plenty of specimens, weather could have been better!",
-      "rating": "3",
-      "_id": "410f789e-ac7a-46fc-a624-b6864c6b7a37",
-      "poiid": "ec20d7af-98bc-4b52-beb3-7218c3b4d52e",
-      "userid": "a8566540-3ac7-40b6-8a61-a8214c70221b"
-    },
-    {
-      "comment": "Really loved visiting, trip of a lifetime",
-      "rating": "5",
-      "_id": "83cdfd82-3e94-4edc-964f-e36b14bc5e67",
-      "poiid": "ec20d7af-98bc-4b52-beb3-7218c3b4d52e",
-      "userid": "a8566540-3ac7-40b6-8a61-a8214c70221b"
-    }
-  ]
+  "pois": [],
+  "ratings": []
 }

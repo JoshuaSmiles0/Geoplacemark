@@ -1,0 +1,24 @@
+
+{{#if manageUsers }}
+{{> adminNav active="manageUsers"}}
+<h1 class="title is-underlined has-text-centered mt-4">{{title}}</h1>
+<section class="section">
+    {{> listAllUsers}}
+</section>
+{{/if}}
+
+{{#if manageSites}}
+{{> adminNav active="managePois"}}
+<h1 class="title is-underlined has-text-centered mt-4">{{title}}</h1>
+<section class="section">
+    {{> listAllPois}}
+</section>
+{{/if}}
+
+{{#if manageRatings}}
+{{> adminNav active="manageRatings"}}
+<h1 class="title is-underlined has-text-centered mt-4">{{title}}</h1>
+<section class="section">
+    {{> listAllRatings}}
+</section>
+{{/if}}

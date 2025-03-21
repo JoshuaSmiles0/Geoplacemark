@@ -20,7 +20,7 @@ export const adminController = {
                 payload : userLoginSchema,
                 options : { abortEarly : false},
                 failAction : function (request, h, error) {
-                  return h.view("admin-login-view", {title: "login error, please try again", errors: error.details }).takeover().code(400)
+                  return h.view("error-view", {title: "login error, please try again", errors: error.details }).takeover().code(400)
                 },
               },
               handler: async function (request, h){
@@ -52,29 +52,17 @@ export const adminController = {
                 handler: async function (request, h) {
                     const ratings = await db.ratingStore.getAllRatings();
                     const ratingLabels = ["1","2","3","4","5"];
-                    const ratingMetrics = [0,0,0,0,0];
-                    for (let i = 0; i < ratings.length; i+=1) {
-                        const ratingValue = ratings[i].rating;
-                        switch(ratingValue) {
-                        case "1":
-                            ratingMetrics[0] += 1;
-                            break;
-                            case "2":
-                            ratingMetrics[1] += 1;;
-                            break;
-                            case "3":
-                            ratingMetrics[2] += 1;;
-                            break;
-                            case "4":
-                            ratingMetrics[3] += 1;;
-                            break;
-                            case "5":
-                            ratingMetrics[4] += 1;;
-                            break;
-                            default:
-                            ratingMetrics[0] += 1;;
-                            }
-                            };
+                    const ratingMetrics = [];
+                    const oneStar = await db.ratingStore.getRatingsByRatingValue(ratingLabels[0])
+                    ratingMetrics.push(oneStar.length)
+                    const twoStar = await db.ratingStore.getRatingsByRatingValue(ratingLabels[1])
+                    ratingMetrics.push(twoStar.length)
+                    const threeStar = await db.ratingStore.getRatingsByRatingValue(ratingLabels[2])
+                    ratingMetrics.push(threeStar.length)
+                    const fourStar = await db.ratingStore.getRatingsByRatingValue(ratingLabels[3])
+                    ratingMetrics.push(fourStar.length)
+                    const fiveStar = await db.ratingStore.getRatingsByRatingValue(ratingLabels[4])
+                    ratingMetrics.push(fiveStar.length)
                     const viewData = {
                         title : "Geoplacemark Analytics Dashboard",
                         subtitle :"Please select metrics to view",
@@ -90,25 +78,14 @@ export const adminController = {
 
             adminDashboardSites: {
                 handler: async function (request, h) {
-                    const poi = await db.poiStore.getAllPoi();
-                    const ratingLabels = ["Economic","Mineralogical","Palaeo"];
-                    const ratingMetrics = [0,0,0];
-                    for (let i = 0; i < poi.length; i+=1) {
-                        const type = poi[i].type
-                        switch(type) {
-                        case "economic":
-                            ratingMetrics[0] += 1;
-                            break;
-                            case "mineralogical":
-                            ratingMetrics[1] += 1;;
-                            break;
-                            case "palaeo":
-                            ratingMetrics[2] += 1;;
-                            break;
-                            default:
-                            ratingMetrics[0] += 1;;
-                            }
-                            };
+                    const ratingLabels = ["economic","mineralogical","palaeo"];
+                    const ratingMetrics = [];
+                    const economicSites = await db.poiStore.getPoiByType(ratingLabels[0])
+                    ratingMetrics.push(economicSites.length)
+                    const mineralSites = await db.poiStore.getPoiByType(ratingLabels[1])
+                    ratingMetrics.push(mineralSites.length)
+                    const palaeoSites = await db.poiStore.getPoiByType(ratingLabels[2])
+                    ratingMetrics.push(palaeoSites.length)
                     const viewData = {
                         title : "Geoplacemark Analytics Dashboard",
                         subtitle :"Please select metrics to view",
@@ -150,9 +127,10 @@ export const adminController = {
                     const users = await db.userStore.getAllUsers()
                     const viewData = {
                         title: "Manage Geoplacemark Users",
-                        users: users
+                        users: users,
+                        manageUsers : true,
                     }
-                    return h.view("manage-users-view", viewData)
+                    return h.view("manage-site-view", viewData)
                 }
             },
 
@@ -161,9 +139,10 @@ export const adminController = {
                     const pois = await db.poiStore.getAllPoi()
                     const viewData = {
                         title: "Manage Geoplacemark Geosites",
-                        pois: pois
+                        pois: pois,
+                        manageSites : true
                     }
-                    return h.view("manage-poi-view", viewData)
+                    return h.view("manage-site-view", viewData)
                 }
             },
 
@@ -172,9 +151,10 @@ export const adminController = {
                     const ratings = await db.ratingStore.getAllRatings()
                     const viewData = {
                         title: "Manage Geoplacemark ratings",
-                        ratings: ratings
+                        ratings: ratings,
+                        manageRatings: true
                     }
-                    return h.view("manage-ratings-view", viewData)
+                    return h.view("manage-site-view", viewData)
                 }
             },
 
