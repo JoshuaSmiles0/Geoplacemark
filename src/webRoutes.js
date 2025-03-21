@@ -3,7 +3,7 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { publicDashboardController } from "./controllers/public-dashboard-controller.js";
 import { ratingController } from "./controllers/rating-controller.js";
-
+import { adminController } from "./controllers/admin-controller.js";
 
 export const webRoutes = [
     { method: "GET", path: "/", config: welcomeController.index },
@@ -34,4 +34,16 @@ export const webRoutes = [
     { method: "GET", path: "/engagement/deleteRating/{id}", config: ratingController.deleteUserEngagement},
     { method: "GET", path: "/engagement/editRating/{id}", config: ratingController.showEditEngagement},
     { method: "POST", path: "/engagement/commitRatingEdit/{id}", config: ratingController.updateUserEngagement},
+    { method: "GET", path: "/admin", config: adminController.showAdminLogin},
+    { method: "POST", path: "/loginAdmin", config: adminController.adminLogin},
+    { method: "GET", path: "/analytics", config: adminController.adminDashboard},
+    { method: "GET", path: "/analytics/ratings", config: adminController.adminDashboardRatings},
+    { method: "GET", path: "/analytics/sites", config: adminController.adminDashboardSites},
+    { method: "GET", path: "/analytics/all", config: adminController.adminDashboardAll},
+    { method: "GET", path: "/manageUsers", config: adminController.showManageUsers},
+    { method: "GET", path: "/manageSites", config: adminController.showManageSites},
+    { method: "GET", path: "/manageRatings", config: adminController.showManageRatings},
+    { method: "GET", path: "/manageUsers/deleteUser/{id}", config: adminController.deleteUser},
+    { method: "GET", path: "/manageSites/deleteSite/{id}", config: adminController.deleteSite},
+    { method: "GET", path: "/manageRatings/deleteRating/{id}", config: adminController.deleteRating},
 ];

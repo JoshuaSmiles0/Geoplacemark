@@ -1,0 +1,29 @@
+<div class="ui segment" id="chart1"></div>
+
+<script>
+  const data = {
+    labels: [
+      {{#each ratingLabels}}
+        "{{this}}",
+      {{/each}}
+    ],
+    datasets: [
+      {
+        name: "{{dataname}}", type: "bar",
+        values: [
+          {{#each ratingMetrics}}
+            {{this}},
+          {{/each}}
+        ]
+      }
+    ]
+  }
+
+  const chart1 = new frappe.Chart("#chart1", {
+    title: "{{graphName}}",
+    data: data,
+    type: 'bar',
+    height: 400,
+    colours:['Red'],
+  })
+</script>

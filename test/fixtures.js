@@ -24,7 +24,7 @@ export const testUsers = [
         surname: "Ciss",
         email : "FC@yahoo.com",
         password :"secret"
-    }
+    },
 ];
 
 export const updatedUser = {

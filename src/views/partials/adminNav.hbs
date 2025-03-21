@@ -1,0 +1,19 @@
+<nav class = "navbar has-background-info">
+    <div class="navbar-brand">
+        {{> geoplacemarkBrand }}
+    </div>
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <div class="buttons">
+                <a id="analytics" class="button" href="/analytics">Analytics</a>
+                <a id="manageUsers" class="button" href="/manageUsers">Manage users</a>
+                <a id="managePois" class="button" href="/manageSites">Manage Geosites</a>
+                <a id="manageRatings" class="button" href="/manageRatings">Manage Ratings</a>
+                <a class="button" href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+  document.getElementById("{{active}}").classList.add("is-link");
+</script>

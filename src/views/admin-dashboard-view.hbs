@@ -1,0 +1,25 @@
+{{> adminNav active="analytics"}}
+<h1 class="title is-underlined has-text-centered mt-4">{{title}}</h1>
+<section class="section">
+<h2 class="subtitle">{{subtitle}}</h2>
+<div class="columns">
+    <div class="column is-2">
+    <a href="/analytics/ratings">
+     <button class="button is-info">Distribution of ratings</button>
+    </a>
+    </div>
+    <div class="column is-2">
+    <a href="/analytics/sites">
+    <button class="button is-info">Distribution of sites</button>
+    </a>
+    </div>
+    <div class="column is-2">
+    <a href="/analytics/all">
+    <button class="button is-info">Distribution of all</button>
+    </a>
+    </div>
+</div>
+</section>
+{{#if graph}}
+{{> analyticsGraph}}
+{{/if}}
