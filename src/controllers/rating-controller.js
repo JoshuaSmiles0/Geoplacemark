@@ -195,6 +195,7 @@ export const ratingController = {
     updateUserEngagement: {
       handler: async function (request,h) {
         const rating = await db.ratingStore.getRatingById(request.params.id);
+        const date = new Date();
             const newDetails = {
                 comment : request.payload.comment,
                 rating : request.payload.rating,
