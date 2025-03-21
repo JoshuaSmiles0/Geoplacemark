@@ -65,5 +65,31 @@ export const dashboardController = {
             await db.poiStore.deletePoiById(poi._id);
             return h.redirect("/dashboard")
         }
-    }
+    },
+
+    showUpdatePoi: {
+        handler: async function (request, h) {
+            const poi = await db.poiStore.getPoiById(request.params.id);
+            const viewData = {
+                title : "Update Poi Details",
+                poi : poi
+            }
+            return h.view("update-poi-view", viewData);
+        } 
+    },
+
+    updatePoi: {
+        handler: async function (request, h) {
+            const poi = await db.poiStore.getPoiById(request.params.id);
+            const newDetails = {
+                location : request.payload.location,
+                lat : request.payload.lat,
+                long : request.payload.long,
+                type : request.payload.type,
+                description : request.payload.description,
+            }
+            await db.poiStore.updatePoi(poi, newDetails);
+            return h.redirect("/dashboard")
+        }
+    },
 };

@@ -93,6 +93,11 @@ export const ratingJsonStore = {
 
     },
 
-
-
+    async updateRating(rating,updatedRating){
+        if(rating !== null){
+            rating.comment = updatedRating.comment
+            rating.rating = updatedRating.rating
+            await db.write()
+    }
+},
 };

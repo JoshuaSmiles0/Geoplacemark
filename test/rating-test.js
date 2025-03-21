@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
-import { testUser,testPoi, testRating, testRatings } from "./fixtures.js";
+import { testUser,testPoi, testRating, testRatings, updatedRating } from "./fixtures.js";
 
 let user = null;
 let poi = null;
@@ -177,6 +177,25 @@ test("delete rating by user id - success", async() => {
             const returnedRating = await db.ratingStore.getRatingsByPoiIdRating(testRating.poiid, "bad rating");
             assert.isEmpty(returnedRating);
         });
+
+
+        test("update a rating - success", async() => {
+                const newRating = updatedRating;
+                let rating = await db.ratingStore.getRatingById(testRatings[0]._id);
+                await db.ratingStore.updateRating(rating, newRating);
+                rating = await db.ratingStore.getRatingById(testRatings[0]._id);
+                assert.equal(rating.comment,newRating.comment);
+                assert.equal(rating.rating, newRating.rating);        
+            });
+        
+            test("update a rating - failure", async() => {
+                const newRating = updatedRating;
+                let rating = await db.ratingStore.getRatingById("Bad Id");
+                await db.ratingStore.updateRating(rating, newRating);
+                rating = await db.ratingStore.getRatingById(testRatings[0]._id);
+                assert.notEqual(rating.comment,newRating.comment);
+                assert.notEqual(rating.rating, newRating.rating);
+            });
 
     
 });

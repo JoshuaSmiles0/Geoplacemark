@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
-import { testPoi, testPois, testUser } from "./fixtures.js";
+import { testPoi, testPois, testUser, updatedPoi } from "./fixtures.js";
 
 let user = null;
 
@@ -158,4 +158,32 @@ suite("Poi Tests", () => {
         const returnedPoi = await db.poiStore.getPoiByUserIdType("bad id", testPois[0].type);
         assert.isEmpty(returnedPoi);
     });
+
+test("update a poi - success", async() => {
+        const newPoi = updatedPoi;
+        let poi = await db.poiStore.getPoiById(testPois[0]._id);
+        await db.poiStore.updatePoi(poi, newPoi);
+        poi = await db.poiStore.getPoiById(testPois[0]._id);
+        assert.equal(poi.location,newPoi.location);
+        assert.equal(poi.lat, newPoi.lat);
+        assert.equal(poi.long, updatedPoi.long);
+        assert.equal(poi.type, updatedPoi.type);
+        assert.equal(poi.description, updatedPoi.description);
+
+    });
+
+    test("update a poi - failure", async() => {
+        const newPoi = updatedPoi;
+        let poi = await db.poiStore.getPoiById("Bad Id");
+        await db.poiStore.updatePoi(poi, newPoi);
+        poi = await db.poiStore.getPoiById(testPois[0]._id);
+        assert.notEqual(poi.location,newPoi.location);
+        assert.notEqual(poi.lat, newPoi.lat);
+        assert.notEqual(poi.long, newPoi.long);
+        assert.notEqual(poi.type, newPoi.type);
+        assert.notEqual(poi.description, newPoi.description);
+
+    })
+
+
 });
