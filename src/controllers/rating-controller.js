@@ -141,6 +141,7 @@ export const ratingController = {
                 comment : request.payload.comment,
                 rating : request.payload.rating,
                 user : `${userDetails.firstName} ${userDetails.surname}`,
+                locationName : poi.location,
                 ratingIconAddress : storeUtils.getRatingIcon(request.payload.rating),
                 date: date.toISOString().replace("T", " ").replace("Z", " "),
             };
@@ -156,5 +157,56 @@ export const ratingController = {
             return h.redirect(`/poi/${poi._id}`);
         }
 
+    },
+
+
+    showUserEngagement: {
+      handler: async function (request, h) {
+        const loggedInUser = request.auth.credentials;
+        const ratings = await db.ratingStore.getRatingsByUserId(loggedInUser._id);
+        const viewData = {
+          title : `${loggedInUser.firstName} ${loggedInUser.surname} Engagement`,
+          ratings : ratings
+        }
+        return h.view("engagement-view", viewData);
+      }
+    },
+
+
+    deleteUserEngagement: {
+      handler: async function (request, h) {
+        await db.ratingStore.deleteRatingById(request.params.id);
+        return h.redirect("/engagement")
+      }
+    },
+
+    showEditEngagement: {
+      handler: async function (request, h) {
+        const rating = await db.ratingStore.getRatingById(request.params.id);
+            const viewData = {
+                title : "Update Rating Details",
+                rating : rating
+            }
+            return h.view("update-rating-view", viewData);
+        } 
+      },
+    
+
+    updateUserEngagement: {
+      handler: async function (request,h) {
+        const rating = await db.ratingStore.getRatingById(request.params.id);
+            const newDetails = {
+                comment : request.payload.comment,
+                rating : request.payload.rating,
+                ratingIconAddress : storeUtils.getRatingIcon(request.payload.rating),
+                date : date.toISOString().replace("T", " ").replace("Z", " "),
+                
+            }
+            await db.ratingStore.updateRating(rating, newDetails);
+            return h.redirect("/engagement")
+        }
+
+      },
     }
-}
+
+

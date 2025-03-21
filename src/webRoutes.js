@@ -30,4 +30,8 @@ export const webRoutes = [
     { method: "GET", path: "/deleteUser/{id}", config: accountsController.deleteUser},
     { method: "GET", path: "/poi/{id}/updatePoi", config: dashboardController.showUpdatePoi},
     { method: "POST", path: "/poi/{id}/commitPoiUpdate", config: dashboardController.updatePoi},
+    { method: "GET", path: "/engagement", config: ratingController.showUserEngagement},
+    { method: "GET", path: "/engagement/deleteRating/{id}", config: ratingController.deleteUserEngagement},
+    { method: "GET", path: "/engagement/editRating/{id}", config: ratingController.showEditEngagement},
+    { method: "POST", path: "/engagement/commitRatingEdit/{id}", config: ratingController.updateUserEngagement},
 ];
