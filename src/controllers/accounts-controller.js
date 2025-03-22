@@ -103,6 +103,9 @@ export const accountsController = {
             password: request.payload.password,
           }
           await db.userStore.updateUserDetails(user, newDetails);
+          const updatedUser = await db.userStore.getUserById(request.params.id);
+          await db.poiStore.updatePoiUser(updatedUser);
+          await db.ratingStore.updateRatingUser(updatedUser);
           request.cookieAuth.clear();
           return h.redirect("/login");
         }

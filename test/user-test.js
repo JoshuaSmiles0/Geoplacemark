@@ -1,12 +1,13 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
-import { testUser, testUsers,updatedUser } from "./fixtures.js";
+import { testU, testUsers,updatedUser } from "./fixtures.js";
+import { assertSubset } from "./test-utils.js";
 
 
 suite("User Tests", () => {
 
     setup(async() => {
-        db.init();
+        db.init("mongo");
         await db.userStore.deleteAllUsers();
         for (let i = 0; i < testUsers.length; i +=1) {
             testUsers[i] = await db.userStore.addUser(testUsers[i])
@@ -18,8 +19,8 @@ suite("User Tests", () => {
     });
 
     test("create a user", async () => {
-        const newUser = await db.userStore.addUser(testUser);
-        assert.deepEqual(newUser,testUser);
+        const newUser = await db.userStore.addUser(updatedUser);
+        assertSubset(newUser,testU);
     });
 
     test("delete a user by id - success", async() =>{
@@ -43,7 +44,7 @@ suite("User Tests", () => {
     });
 
     test("get user by id - success", async() => {
-        const user = await db.userStore.addUser(testUser);
+        const user = await db.userStore.addUser(updatedUser);
         const desiredUser = await db.userStore.getUserById(user._id);
         assert.deepEqual(user, desiredUser);
     });
@@ -54,7 +55,7 @@ suite("User Tests", () => {
     });
 
     test("get user by email - success", async() => {
-        const user = await db.userStore.addUser(testUser);
+        const user = await db.userStore.addUser(updatedUser);
         const desiredUser = await db.userStore.getUserByEmail(user.email);
         assert.deepEqual(user, desiredUser);
     });

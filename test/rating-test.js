@@ -1,6 +1,7 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
-import { testUser,testPoi, testRating, testRatings, updatedRating } from "./fixtures.js";
+import { testU,testPoi, testRating, testRatings, updatedRating, updatedUser, testUsers, testPois } from "./fixtures.js";
+import { assertSubset } from "./test-utils.js";
 
 let user = null;
 let poi = null;
@@ -8,13 +9,22 @@ let poi = null;
 suite("Rating Tests", () => {
 
 setup(async() => {
-        db.init();
+        db.init("mongo");
         await db.userStore.deleteAllUsers();
         await db.poiStore.deleteAllPoi();
         await db.ratingStore.deleteAllRatings();
-        user = await db.userStore.addUser(testUser);
+        const date = new Date()
+        const newdate = date.toISOString().replace("T", " ").replace("Z", " ")
+        user = await db.userStore.addUser(updatedUser);
+        testPoi.author = user.firstName + user.surname
+        testPoi.userid= user._id
+        testPoi.iconAddress= "an icon address"
         poi = await db.poiStore.addPoi(testPoi);
         for (let i = 0; i < testRatings.length; i +=1) {
+            testRatings[i].locationName= poi.location
+            testRatings[i].ratingIconAddress = "icon address"
+            testRatings[i].date = newdate
+            testRatings[i].user = user.firstName + user.surname
             testRatings[i] = await db.ratingStore.addRating(poi._id, user._id, testRatings[i])
         }
     });
@@ -25,7 +35,7 @@ teardown(async() => {
 
 test("add a rating", async () => {
     const newRating = await db.ratingStore.addRating(poi._id, user._id, testRating);
-    assert.deepEqual(newRating,testRating);
+    assertSubset(newRating,testRating);
     assert.isDefined(newRating._id);
     assert.isDefined(newRating.userid);
     assert.isDefined(newRating.poiid);
@@ -107,9 +117,14 @@ test("delete a rating by id - success", async() =>{
     
     
 test("delete rating by user id - success", async() => {
+        const newUser = await db.userStore.addUser(testUsers[0])
+        testPois[0].author = newUser.firstName + user.surname
+        testPois[0].userid= newUser._id
+        testPois[0].iconAddress= "an icon address"
+        const newPoi = await db.poiStore.addPoi(testPois[0])
         const newRating = testRating;
-        const userId = "1234567"
-        const poiId = "7654321"
+        const userId = newUser._id
+        const poiId = newPoi._id
         await db.ratingStore.addRating(poiId,userId,newRating);
         let updatedRatings = await db.ratingStore.getAllRatings();
         assert.equal(testRatings.length + 1, updatedRatings.length);
@@ -127,9 +142,14 @@ test("delete rating by user id - success", async() => {
     });
 
     test("delete rating by poi id - success", async() => {
+        const newUser = await db.userStore.addUser(testUsers[0])
+        testPois[0].author = newUser.firstName + user.surname
+        testPois[0].userid= newUser._id
+        testPois[0].iconAddress= "an icon address"
+        const newPoi = await db.poiStore.addPoi(testPois[0])
         const newRating = testRating;
-        const userId = "1234567"
-        const poiId = "7654321"
+        const userId = newUser._id
+        const poiId = newPoi._id
         await db.ratingStore.addRating(poiId,userId,newRating);
         let updatedRatings = await db.ratingStore.getAllRatings();
         assert.equal(testRatings.length + 1, updatedRatings.length);
@@ -196,6 +216,35 @@ test("delete rating by user id - success", async() => {
                 assert.notEqual(rating.comment,newRating.comment);
                 assert.notEqual(rating.rating, newRating.rating);
             });
+
+    test("update a ratings user - success", async() => {
+        user.firstName = "A new"
+        user.surname = "user"
+        await db.ratingStore.updateRatingUser(user)
+        const updatedRating = await db.ratingStore.getRatingById(testRatings[0]._id)
+        assert.equal(updatedRating.user, `${user.firstName} ${user.surname}` )
+
+    });
+
+    test("update a ratings user - failure", async() => {
+        await db.ratingStore.updateRatingUser("bad user")
+        const updatedRating = await db.ratingStore.getRatingById(testRatings[0]._id)
+        assertSubset(updatedRating, testRatings[0])
+    });
+
+    test("update a ratings locationName - success", async() => {
+        poi.location = "a new location"
+        await db.ratingStore.updateRatingPoi(poi)
+        const updatedRating = await db.ratingStore.getRatingById(testRatings[0]._id)
+        assert.equal(updatedRating.locationName, poi.location )
+    });
+
+    test("update a ratings locationName - failure", async() => {
+        await db.ratingStore.updateRatingPoi("bad user")
+        const updatedRating = await db.ratingStore.getRatingById(testRatings[0]._id)
+        assertSubset(updatedRating, testRatings[0])
+    });
+
 
     
 });

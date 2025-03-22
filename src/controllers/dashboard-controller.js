@@ -94,8 +94,11 @@ export const dashboardController = {
                 long : request.payload.long,
                 type : request.payload.type,
                 description : request.payload.description,
+                iconAddress : storeUtils.getTypeIcon(request.payload.type)
             }
             await db.poiStore.updatePoi(poi, newDetails);
+            const updatedPoi = await db.poiStore.getPoiById(request.params.id);
+            await db.ratingStore.updateRatingPoi(updatedPoi);
             return h.redirect("/dashboard")
         }
     },

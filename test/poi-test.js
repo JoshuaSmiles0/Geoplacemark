@@ -1,18 +1,21 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
-import { testPoi, testPois, testUser, updatedPoi } from "./fixtures.js";
+import { testPoi, testPois, testU, updatedPoi, updatedUser } from "./fixtures.js";
+import { assertSubset } from "./test-utils.js";
 
 let user = null;
 
 suite("Poi Tests", () => {
 
     setup(async() => {
-        db.init();
+        db.init("mongo");
         await db.userStore.deleteAllUsers();
         await db.poiStore.deleteAllPoi();
-        user = await db.userStore.addUser(testUser);
+        user = await db.userStore.addUser(updatedUser);
         for (let i = 0; i < testPois.length; i +=1) {
             testPois[i].userid = user._id
+            testPois[i].author = user.firstName + user.surname
+            testPois[i].iconAddress = "an icon address"
             testPois[i] = await db.poiStore.addPoi(testPois[i])
         }
     });
@@ -23,7 +26,7 @@ suite("Poi Tests", () => {
 
     test("create a poi", async () => {
             const newPoi = await db.poiStore.addPoi(testPoi);
-            assert.deepEqual(newPoi,testPoi);
+           assertSubset(newPoi,testPoi);
             assert.isDefined(newPoi._id);
         });
 
@@ -60,7 +63,7 @@ suite("Poi Tests", () => {
     });
 
     test("Get Poi by userId - failure", async () => {
-        const desiredPois = await db.poiStore.getPoiByUserId("bad id");
+        const desiredPois = await db.poiStore.getPoiByUserId("badid");
         assert.isEmpty(desiredPois);
     });
 
@@ -104,13 +107,14 @@ suite("Poi Tests", () => {
         });
 
     test("delete poi by user id - success", async() => {
-        const newPoi = testPoi;
-        const id = "1234567"
-        newPoi.userid = id
-        await db.poiStore.addPoi(newPoi);
+        const user = await db.userStore.addUser(updatedUser)
+        testPoi.userid = user._id
+        testPoi.author = user.firstName + user.surname
+        testPoi.iconAddress = "an icon address"
+        const newPoi = await db.poiStore.addPoi(testPoi);
         let updatedPois = await db.poiStore.getAllPoi();
         assert.equal(testPois.length + 1, updatedPois.length);
-        await db.poiStore.deletePoiByUserId(id);
+        await db.poiStore.deletePoiByUserId(user._id);
         updatedPois = await db.poiStore.getAllPoi();
         assert.equal(updatedPois.length,testPois.length);
     });
@@ -183,7 +187,21 @@ test("update a poi - success", async() => {
         assert.notEqual(poi.type, newPoi.type);
         assert.notEqual(poi.description, newPoi.description);
 
-    })
+    });
+
+    test("update a poi author - success", async() => {
+        user.firstName = "A new"
+        user.surname = "user"
+        await db.poiStore.updatePoiUser(user)
+        const updatedPoi = await db.poiStore.getPoiById(testPois[0]._id)
+        assert.equal(updatedPoi.author, `${user.firstName} ${user.surname}`)
+    });
+
+    test("update a poi author - failure", async() => {
+        await db.poiStore.updatePoiUser("bad user")
+        const updatedPoi = await db.poiStore.getPoiById(testPois[0]._id)
+        assertSubset(updatedPoi, testPois[0])
+    });
 
 
 });
