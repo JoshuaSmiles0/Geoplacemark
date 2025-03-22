@@ -8,7 +8,7 @@ let user = null;
 suite("Poi Tests", () => {
 
     setup(async() => {
-        db.init("mongo");
+        db.init("json");
         await db.userStore.deleteAllUsers();
         await db.poiStore.deleteAllPoi();
         user = await db.userStore.addUser(updatedUser);

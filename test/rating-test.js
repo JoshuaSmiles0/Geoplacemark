@@ -9,7 +9,7 @@ let poi = null;
 suite("Rating Tests", () => {
 
 setup(async() => {
-        db.init("mongo");
+        db.init("json");
         await db.userStore.deleteAllUsers();
         await db.poiStore.deleteAllPoi();
         await db.ratingStore.deleteAllRatings();

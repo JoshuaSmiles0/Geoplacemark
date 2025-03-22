@@ -9,6 +9,7 @@ const ratingSchema = new Schema({
   locationName: String,
   ratingIconAddress : String,
   date : Date,
+  user : String,
   poiid : {
     type : Schema.Types.ObjectId,
     ref : "Poi"
