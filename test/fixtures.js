@@ -1,8 +1,9 @@
-export const testUser = {
-   firstName : "Trevor",
-   surname : "Duffy",
-   email : "trevor.duffy@gmail.com",
-   password : "secret"
+
+export const testU = {
+    firstName : "Trevor",
+    surname : "Duffy",
+    email : "trevord@gmail.com",
+    password : "secret",
 };
 
 
