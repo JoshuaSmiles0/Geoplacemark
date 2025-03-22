@@ -9,7 +9,7 @@ let poi = null;
 suite("Rating Tests", () => {
 
 setup(async() => {
-        db.init("json");
+        db.init("mongo");
         await db.userStore.deleteAllUsers();
         await db.poiStore.deleteAllPoi();
         await db.ratingStore.deleteAllRatings();
@@ -24,6 +24,7 @@ setup(async() => {
             testRatings[i].locationName= poi.location
             testRatings[i].ratingIconAddress = "icon address"
             testRatings[i].date = newdate
+            testRatings[i].user = user.firstName + user.surname
             testRatings[i] = await db.ratingStore.addRating(poi._id, user._id, testRatings[i])
         }
     });
@@ -215,6 +216,35 @@ test("delete rating by user id - success", async() => {
                 assert.notEqual(rating.comment,newRating.comment);
                 assert.notEqual(rating.rating, newRating.rating);
             });
+
+    test("update a ratings user - success", async() => {
+        user.firstName = "A new"
+        user.surname = "user"
+        await db.ratingStore.updateRatingUser(user)
+        const updatedRating = await db.ratingStore.getRatingById(testRatings[0]._id)
+        assert.equal(updatedRating.user, `${user.firstName} ${user.surname}` )
+
+    });
+
+    test("update a ratings user - failure", async() => {
+        await db.ratingStore.updateRatingUser("bad user")
+        const updatedRating = await db.ratingStore.getRatingById(testRatings[0]._id)
+        assertSubset(updatedRating, testRatings[0])
+    });
+
+    test("update a ratings locationName - success", async() => {
+        poi.location = "a new location"
+        await db.ratingStore.updateRatingPoi(poi)
+        const updatedRating = await db.ratingStore.getRatingById(testRatings[0]._id)
+        assert.equal(updatedRating.locationName, poi.location )
+    });
+
+    test("update a ratings locationName - failure", async() => {
+        await db.ratingStore.updateRatingPoi("bad user")
+        const updatedRating = await db.ratingStore.getRatingById(testRatings[0]._id)
+        assertSubset(updatedRating, testRatings[0])
+    });
+
 
     
 });

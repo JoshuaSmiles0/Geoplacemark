@@ -77,10 +77,21 @@ export const poiMongoStore = {
     async updatePoi(poi, updatedPoi) {
         try {
             await Poi.updateOne({_id:{$eq:poi._id}},
-            { location :updatedPoi.location, lat : updatedPoi.lat, long: updatedPoi.long, type : updatedPoi.type, description : updatedPoi.description})
+            { location :updatedPoi.location, lat : updatedPoi.lat, long: updatedPoi.long, type : updatedPoi.type, description : updatedPoi.description, iconAddress : updatedPoi.iconAddress })
         }
             catch (error) {
                 console.log("Issue with poi")
         
             }},
+
+    async updatePoiUser(user) {
+        try {
+            await Poi.updateMany({userid : {$eq:user._id}},
+            {author : `${user.firstName} ${user.surname}`}
+            )
+        }
+        catch (error) {
+           console.log("issue with user")
+        }
+    },
     };

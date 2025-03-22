@@ -8,7 +8,7 @@ let user = null;
 suite("Poi Tests", () => {
 
     setup(async() => {
-        db.init("json");
+        db.init("mongo");
         await db.userStore.deleteAllUsers();
         await db.poiStore.deleteAllPoi();
         user = await db.userStore.addUser(updatedUser);
@@ -187,7 +187,21 @@ test("update a poi - success", async() => {
         assert.notEqual(poi.type, newPoi.type);
         assert.notEqual(poi.description, newPoi.description);
 
-    })
+    });
+
+    test("update a poi author - success", async() => {
+        user.firstName = "A new"
+        user.surname = "user"
+        await db.poiStore.updatePoiUser(user)
+        const updatedPoi = await db.poiStore.getPoiById(testPois[0]._id)
+        assert.equal(updatedPoi.author, `${user.firstName} ${user.surname}`)
+    });
+
+    test("update a poi author - failure", async() => {
+        await db.poiStore.updatePoiUser("bad user")
+        const updatedPoi = await db.poiStore.getPoiById(testPois[0]._id)
+        assertSubset(updatedPoi, testPois[0])
+    });
 
 
 });

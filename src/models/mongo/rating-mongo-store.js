@@ -104,4 +104,26 @@ export const ratingMongoStore = {
                 console.log("Issue with rating")
         
             }},
+
+    async updateRatingUser(user) {
+      try {
+            await Rating.updateMany({userid : {$eq:user._id}},
+            {user : `${user.firstName} ${user.surname}`}
+            )
+        }
+        catch (error) {
+           console.log("issue with user")
+        }
+    },
+
+    async updateRatingPoi(poi) {
+        try {
+            await Rating.updateMany({poiid : {$eq:poi._id}},
+            {locationName : poi.location}
+            )
+        }
+        catch (error) {
+           console.log("issue with location")
+        }
+    },
 };
