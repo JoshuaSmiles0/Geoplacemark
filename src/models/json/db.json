@@ -1,13 +1,70 @@
 {
   "users": [
     {
-      "firstName": "admin",
-      "surname": "admin",
-      "email": "admin@geoplacemark.com",
-      "password": "@dmin&ge0placemark",
-      "_id": "35e54d1b-bbb7-4fab-996d-bfd9160bd9d6"
+      "firstName": "Paddy",
+      "surname": "reilly",
+      "email": "paddyR@outlook.com",
+      "password": "secret",
+      "_id": "4297eabd-75eb-4cf2-b270-0993c0ad9250"
+    },
+    {
+      "firstName": "Jenny",
+      "surname": "Rourke",
+      "email": "jRourke@gmail.com",
+      "password": "secret",
+      "_id": "17b44b1c-3c47-4b94-af0d-6fe8f68518c6"
+    },
+    {
+      "firstName": "Fran",
+      "surname": "Ciss",
+      "email": "FC@yahoo.com",
+      "password": "secret",
+      "_id": "aa818ed3-d828-45aa-84a7-6f4b88511f71"
     }
   ],
-  "pois": [],
-  "ratings": []
+  "pois": [
+    {
+      "location": "Tara mines",
+      "lat": 53.65394778470117,
+      "long": -6.720177158598912,
+      "type": "economic",
+      "description": "A lead and zinc mine in the republic of ireland near the town of navan",
+      "_id": "8a9414c7-be86-4256-9da8-bce5bbf8120c",
+      "userid": "c0dc824b-6621-4188-862c-5816c7837042",
+      "author": "A newuser",
+      "iconAddress": "an icon address"
+    }
+  ],
+  "ratings": [
+    {
+      "comment": "Wasn't too keen, couldnt see much",
+      "rating": "2",
+      "locationName": "Tara mines",
+      "ratingIconAddress": "icon address",
+      "date": "2025-03-22 18:46:51.326 ",
+      "_id": "74934646-db7d-4634-9708-78270a00462e",
+      "poiid": "8a9414c7-be86-4256-9da8-bce5bbf8120c",
+      "userid": "c0dc824b-6621-4188-862c-5816c7837042"
+    },
+    {
+      "comment": "Collected plenty of specimens, weather could have been better!",
+      "rating": "3",
+      "locationName": "Tara mines",
+      "ratingIconAddress": "icon address",
+      "date": "2025-03-22 18:46:51.326 ",
+      "_id": "bf84f851-3307-4fed-b2f4-c50218ebb43e",
+      "poiid": "8a9414c7-be86-4256-9da8-bce5bbf8120c",
+      "userid": "c0dc824b-6621-4188-862c-5816c7837042"
+    },
+    {
+      "comment": "Really loved visiting, trip of a lifetime",
+      "rating": "5",
+      "locationName": "Tara mines",
+      "ratingIconAddress": "icon address",
+      "date": "2025-03-22 18:46:51.326 ",
+      "_id": "354f13d2-e77b-4efc-adbc-a23b3b611ae3",
+      "poiid": "8a9414c7-be86-4256-9da8-bce5bbf8120c",
+      "userid": "c0dc824b-6621-4188-862c-5816c7837042"
+    }
+  ]
 }
