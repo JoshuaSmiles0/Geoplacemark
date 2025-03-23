@@ -1,5 +1,6 @@
 import Joi from "joi";
 
+// Joi schemas used in non Api Validation
 
 export const userSchema = {
     firstName : Joi.string().required(),

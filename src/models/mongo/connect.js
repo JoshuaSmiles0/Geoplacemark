@@ -3,14 +3,18 @@ import Mongoose from "mongoose";
 import * as mongooseSeeder from "mais-mongoose-seeder";
 import { seedData } from "./seed-data.js";
 
+// methods for mongodb setup
+
 const seedLib = mongooseSeeder.default;
 
+// database seeder
 async function seed() {
   const seeder = seedLib(Mongoose);
   const dbData = await seeder.seed(seedData, { dropDatabase: false, dropCollections: true });
   console.log(dbData);
 }
 
+// Method for connecting to mongodb datasource
 export function connectMongo() {
   dotenv.config();
 

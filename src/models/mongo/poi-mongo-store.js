@@ -1,6 +1,8 @@
 import Mongoose from "mongoose";
 import { Poi } from "./poi.js";
 
+// methods for writing poi data to mongo
+
 export const poiMongoStore = {
 
     async getAllPoi() {

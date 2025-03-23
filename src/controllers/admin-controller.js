@@ -5,7 +5,7 @@ import { userLoginSchema } from "../models/joi-schemas.js";
 
 export const adminController = {
 
-
+    // renders admin login page
     showAdminLogin: {
         auth: false,
         handler: function (request, h) {
@@ -13,7 +13,12 @@ export const adminController = {
         },
       },
 
-
+      /**
+       * Attempts to validate user against admin details stored in .env file
+       * If successful, sets cookie and redirects user to admin dashboard
+       * else returns user to admin-login view displaying error. If Joi 
+       * schema violated, redirects user to error view displaying message
+       */
       adminLogin: {
               auth: false,
               validate : {
@@ -38,6 +43,7 @@ export const adminController = {
               }
             },
 
+            // Renders admin dashboard
             adminDashboard: {
                 handler: async function (request, h) {
                     const viewData = {
@@ -48,6 +54,9 @@ export const adminController = {
                 }
             },
 
+            // Retrieves all ratings. Creates labels and data arrays. Passes 
+            // These, graph title, data title and sets boolean graph to render 
+            // graph partial in admin dashboard view
             adminDashboardRatings: {
                 handler: async function (request, h) {
                     const ratings = await db.ratingStore.getAllRatings();
@@ -76,6 +85,9 @@ export const adminController = {
                 }
             },
 
+            // Retrieves all ratings. Creates labels and data arrays. Passes 
+            // These, graph title, data title and sets boolean graph to render 
+            // graph partial in admin dashboard view
             adminDashboardSites: {
                 handler: async function (request, h) {
                     const ratingLabels = ["economic","mineralogical","palaeo"];
@@ -98,7 +110,10 @@ export const adminController = {
                     return h.view("admin-dashboard-view", viewData);
                 }
             },
-
+            
+            // Retrieves all ratings. Creates labels and data arrays. Passes 
+            // These, graph title, data title and sets boolean graph to render 
+            // graph partial in admin dashboard view
             adminDashboardAll: {
                 handler: async function (request, h) {
                     const ratings = await db.ratingStore.getAllRatings();
@@ -121,7 +136,9 @@ export const adminController = {
                     return h.view("admin-dashboard-view", viewData);
                 }
             },
-
+            
+            // Retrieves all users. Passes users and manageUsers boolean
+            // to view to render the listAllUsers partial in manage-site-view
             showManageUsers : {
                 handler: async function (request, h){
                     const users = await db.userStore.getAllUsers()
@@ -134,6 +151,8 @@ export const adminController = {
                 }
             },
 
+            // Retrieves all pois. Passes pois and managePois boolean
+            // to view to render the listAllPois partial in manage-site-view
             showManageSites : {
                 handler: async function (request, h){
                     const pois = await db.poiStore.getAllPoi()
@@ -146,6 +165,8 @@ export const adminController = {
                 }
             },
 
+            // Retrieves all ratings. Passes ratings and manageRatings boolean
+            // to view to render the listAllRatings partial in manage-site-view
             showManageRatings : {
                 handler: async function (request, h){
                     const ratings = await db.ratingStore.getAllRatings()
@@ -158,6 +179,9 @@ export const adminController = {
                 }
             },
 
+            // Admin view delete user. retrieves user from query param. Deletes user
+            // using this and also associated pois and ratings. Redirects user to 
+            // manage users view with users rendered
             deleteUser: {
                 handler: async function (request, h) {
                     const user = await db.userStore.getUserById(request.params.id);
@@ -168,6 +192,9 @@ export const adminController = {
                 }
             },
 
+            // Admin view delete site. retrieves site from query param. Deletes site
+            // using this and also associated  ratings. Redirects user to 
+            // manage sites view with sites rendered
             deleteSite: {
                 handler: async function (request, h) {
                     const poi = await db.poiStore.getPoiById(request.params.id);
@@ -176,7 +203,9 @@ export const adminController = {
                     return h.redirect("/manageSites")
                 }
             },
-
+            
+            // Admin view delete rating. Retrieves rating from query param. Deletes rating 
+            // and redirects user to manage ratins view with ratings rendered
             deleteRating: {
                 handler: async function (request, h) {
                     const rating = await db.ratingStore.getRatingById(request.params.id);

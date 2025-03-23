@@ -7,6 +7,8 @@ import { ratingMongoStore } from "./mongo/rating-mongo-store.js";
 import { poiMongoStore } from "./mongo/poi-mongo-store.js";
 import { connectMongo } from "./mongo/connect.js";
 
+// Method for initialising each database type based on input string 
+
 export const db = {
     userStore : null,
     poiStore : null,

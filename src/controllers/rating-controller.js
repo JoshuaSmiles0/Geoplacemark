@@ -2,10 +2,14 @@ import { db } from "../models/db.js";
 import { storeUtils } from "../models/utils.js";
 import { ratingSchema } from "../models/joi-schemas.js";
 
-
+// Controls individual site dashboards and ratings
 
 export const ratingController = {
 
+
+  // Renders user poi view. Creates arrays required for graph showing split
+  // of ratings. Also retrieves average rating for site and image using utility method.
+  // Also renders the pois details
     index: {
         handler: async function (request, h) {
             const poi = await db.poiStore.getPoiById(request.params.id);
@@ -48,6 +52,7 @@ export const ratingController = {
         }
     },
 
+    // Renders as above, but with ratings list filtered by passed type
     filterRatings: {
         handler: async function (request, h) {
             const poi = await db.poiStore.getPoiById(request.params.id);
@@ -91,6 +96,7 @@ export const ratingController = {
     },
 
 
+    // Renders public poi view which allows users to post ratings to site
     publicRatings: {
         handler: async function (request, h) {
             const poi = await db.poiStore.getPoiById(request.params.id);
@@ -105,7 +111,8 @@ export const ratingController = {
             return h.view("public-poi-view", viewData);
         }
     },
-
+    
+    // As above but with ratings filtered by passed rating value
     filterPublicRatings: {
         handler: async function (request, h) {
             const poi = await db.poiStore.getPoiById(request.params.id);
@@ -123,7 +130,11 @@ export const ratingController = {
     },
 
     
-
+    // Adds a rating to poi from public view. Constructs updated details from
+    // logged in user details , the poi and user specified details. Uses util 
+    // methods to retrieve image path for star rating. If joi schema violated, 
+    // redirects user to error page displaying validation issues. Once rating
+    // added, redirects user to public poi page
     addRating: {
         validate : {
                     payload : ratingSchema,
@@ -150,6 +161,7 @@ export const ratingController = {
         }
     },
 
+    // deletes a rating from private poi page. Redirects user to private page
     deleteRating: {
         handler: async function (request, h) {
             const poi = await db.poiStore.getPoiById(request.params.poiId);
@@ -159,7 +171,8 @@ export const ratingController = {
 
     },
 
-
+    // renders user engagement page showing users ratings. Able to update and 
+    // delete own ratings from page
     showUserEngagement: {
       handler: async function (request, h) {
         const loggedInUser = request.auth.credentials;
@@ -172,7 +185,8 @@ export const ratingController = {
       }
     },
 
-
+    // Deletes a users rating by id from user engagement page and
+    // redirects user to engagmenet page
     deleteUserEngagement: {
       handler: async function (request, h) {
         await db.ratingStore.deleteRatingById(request.params.id);
@@ -180,6 +194,7 @@ export const ratingController = {
       }
     },
 
+    // renders page for user to edit specifc rating
     showEditEngagement: {
       handler: async function (request, h) {
         const rating = await db.ratingStore.getRatingById(request.params.id);
@@ -191,7 +206,9 @@ export const ratingController = {
         } 
       },
     
-
+    // Updates a users comment and redirects to engagment page
+    // If joi validation violated, renders error page stating 
+    // validation issues 
     updateUserEngagement: {
       validate : {
         payload : ratingSchema,

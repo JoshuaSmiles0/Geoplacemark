@@ -1,5 +1,7 @@
 import Joi from "joi";
 
+// Joi schemas for hapi swagger documentation only, not used in other validation, only api
+
 export const IdSpec = Joi.alternatives().try(Joi.string(), Joi.object()).description("a valid ID");
 
 

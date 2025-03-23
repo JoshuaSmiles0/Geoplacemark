@@ -1,6 +1,7 @@
 import Mongoose from "mongoose";
 import { User } from "./user.js";
 
+// methods for writing user data to mongo
 
 export const userMongoStore = {
 

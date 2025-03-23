@@ -1,6 +1,7 @@
 import { v4 } from "uuid";
 import { db } from "./store-utils.js";
 
+// methods for writing user data to lowdb store
 
 export const userJsonStore = {
 

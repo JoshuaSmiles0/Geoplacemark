@@ -56,12 +56,12 @@ setup(async () => {
 
     test("authenticate against existing user with incorrect email", async () => {
         await geoplacemarkService.createUser(testApiUsers[0]);
-        testCredentials[0].email = "Wrong email";
+        testCredentials[0].email = "wrong.email@gmail.com";
         try {
             const response = await geoplacemarkService.authenticate(testCredentials[0]);
         }
         catch (error) {
-            assert(error.response.data.statusCode === 500)
+            assert(error.response.data.statusCode === 401)
         }
     });
 

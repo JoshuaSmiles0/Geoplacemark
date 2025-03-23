@@ -1,6 +1,8 @@
 import { v4 } from "uuid";
 import { db } from "./store-utils.js";
 
+// methods for writing rating data to lowdb store
+
 export const ratingJsonStore = {
 
     async getAllRatings() {

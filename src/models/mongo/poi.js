@@ -1,5 +1,7 @@
 import Mongoose from "mongoose";
 
+// Mongo schema for db poi objects 
+
 const { Schema } = Mongoose;
 
 const poiSchema = new Schema({

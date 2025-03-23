@@ -5,8 +5,10 @@ import { publicDashboardController } from "./controllers/public-dashboard-contro
 import { ratingController } from "./controllers/rating-controller.js";
 import { adminController } from "./controllers/admin-controller.js";
 
+// Web interface routes for geoplacemark website
 export const webRoutes = [
     { method: "GET", path: "/", config: welcomeController.index },
+    { method: "GET", path: "/about", config: welcomeController.about},
     { method: "GET", path: "/login", config: accountsController.showLogin },
     { method: "GET", path: "/signup", config: accountsController.showSignup },
     { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },

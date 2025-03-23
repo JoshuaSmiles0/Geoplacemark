@@ -2,8 +2,11 @@ import { db } from "../models/db.js";
 import { poiSchema } from "../models/joi-schemas.js";
 import { storeUtils } from "../models/utils.js";
 
+// Controls user specific dashboard user sites
+
 export const dashboardController = {
 
+    // Renders users dashboard populated with users sites
     index : {
         handler: async function (request, h) {
             const loggedInUser = request.auth.credentials;
@@ -16,7 +19,10 @@ export const dashboardController = {
         }
     },
 
-
+    // Constructs a new Poi from passed details payload and logged in user
+    // and adds this to the db. Icon address retrieved using util method on type
+    //  If Joi validation violated, redirects user to 
+    // error view displaying validation errors
     addPoi : {
         validate : {
             payload : poiSchema,
@@ -44,7 +50,9 @@ export const dashboardController = {
     },
 
 
-    
+    // Used to filter user dashboard by site type. Retrieves pois by 
+    // logged in user and passed type. Re renders dashboard view only displaying 
+    // filtered list
     filterPois : {
         handler: async function (request, h) {
             const loggedInUser = request.auth.credentials;
@@ -57,7 +65,8 @@ export const dashboardController = {
         }
     },
 
-
+    // deletes a poi by passed id param. Deletes poi and associated ratings. Redirects to 
+    // user dashboard
     deletePoi : {
         handler: async function (request, h) {
             const poi = await db.poiStore.getPoiById(request.params.id);
@@ -66,7 +75,9 @@ export const dashboardController = {
             return h.redirect("/dashboard")
         }
     },
-
+    
+    // redirects user to update page displaying current poi details and a form to 
+    // update this
     showUpdatePoi: {
         handler: async function (request, h) {
             const poi = await db.poiStore.getPoiById(request.params.id);
@@ -78,6 +89,10 @@ export const dashboardController = {
         } 
     },
 
+    // constructs new details object from passed parameters and calls get icon type
+    // util on type to retrieve image path based on type. Updates poi and also associated
+    // ratings. Redirects user to personal dashboard. If joi validation violated on update
+    // redirects user to error page displaying errors
     updatePoi: {
         validate : {
             payload : poiSchema,
