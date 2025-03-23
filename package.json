@@ -36,7 +36,11 @@
     "jsonwebtoken": "^9.0.2",
     "lowdb": "^7.0.1",
     "mais-mongoose-seeder": "^1.0.7",
+    "mongodb": "6.15",
     "mongoose": "^8.10.1",
     "uuid": "^11.0.5"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }
