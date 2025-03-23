@@ -8,12 +8,12 @@ export const geoplacemarkService = {
 
     async authenticate(user) {
         const response = await axios.post(`${this.geoplacemarkUrl}/api/users/authenticate`, user);
-        axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
+        axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         return response.data;
       },
     
       async clearAuth() {
-        axios.defaults.headers.common["Authorization"] = "";
+        axios.defaults.headers.common.Authorization = "";
       },
 
     async createUser(user) {

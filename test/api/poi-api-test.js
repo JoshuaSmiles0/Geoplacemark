@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
-import { testU, testUsers,updatedUser, testPoi, testPois, updatedPoi } from "../apiFixtures.js";
+import { testU, testUsers,updatedUser, testPoi, testPois, updatedPoi, testCredentials, testApiUsers } from "../apiFixtures.js";
 import { geoplacemarkService } from "./geoplacemark-service.js";
 
 
@@ -9,12 +9,12 @@ import { geoplacemarkService } from "./geoplacemark-service.js";
 suite("Poi API tests", () => {
 setup(async () => {
         geoplacemarkService.clearAuth()
-        let u = await geoplacemarkService.createUser(updatedUser)
-        await geoplacemarkService.authenticate(u)
+        let u = await geoplacemarkService.createUser(testApiUsers[1])
+        await geoplacemarkService.authenticate(testCredentials[1])
         await geoplacemarkService.deleteAllPois();
         await geoplacemarkService.deleteAllUsers();
-        u = await geoplacemarkService.createUser(updatedUser);
-        await  geoplacemarkService.authenticate(u);
+        u = await geoplacemarkService.createUser(testApiUsers[1]);
+        await  geoplacemarkService.authenticate(testCredentials[1]);
         for (let i = 0; i < testPois.length; i +=1) {
             testUsers[i] = await geoplacemarkService.createUser(testUsers[i])
             testPois[i].userid = testUsers[i]._id
@@ -39,7 +39,7 @@ setup(async () => {
 
     test("get poi by id - success", async() => {
         const poi = await geoplacemarkService.getPoiById(testPois[0]._id)
-        assert.deepEqual(poi, testPois[0])
+        assertSubset(poi, testPois[0])
     });
 
     test("get a poi by id - fail", async () => {

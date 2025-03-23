@@ -1,19 +1,66 @@
 export const serviceUrl = "http://localhost:3000";
 
+
+export const testCredentials = [
+{
+    
+    email : "testR@outlook.com",
+    password : "secret"
+
+},
+{
+    email : "trialR@gmail.com",
+    password: "secret"
+
+},
+{
+    email : "tryR@hotmail.com",
+    password: "secret"
+
+},
+{
+    email : "thinkR@hotmail.com",
+    password: "secret"
+}
+];
+
+export const testApiUsers = [
+    {
+        firstName : "test",
+        surname: "er",
+        email : "testR@outlook.com",
+        password : "secret"
+    
+    },
+    {
+        firstName: "trial",
+        surname: "er",
+        email : "trialR@gmail.com",
+        password: "secret"
+    
+    },
+    {
+        firstName: "try",
+        surname: "er",
+        email : "tryR@hotmail.com",
+        password: "secret"
+    
+    },
+    {
+        firstName: "think",
+        surname: "er",
+        email : "thinkR@hotmail.com",
+        password: "secret"
+    }
+    ];
+
+
 export const testU = {
     firstName : "Trevor",
     surname : "Duffy",
     email : "trevor.d@gmail.com",
     password : "secret",
 };
-
-export const apiUser = {
-    firstName : "Nick",
-    surname : "Cage",
-    email : "N.Cage@gmail.com",
-    password : "secret",
-};
-
 
 export const testUsers = [
     {

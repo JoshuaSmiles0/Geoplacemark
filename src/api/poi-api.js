@@ -24,7 +24,7 @@ export const poiApi = {
             tags: ["api"],
             description: "Create a single poi",
             notes: "Creates one poi in the database from passed poi details",
-            validate: {payload: poiSpecPlus, failAction : validationError },
+            validate: {payload: poiSpec, failAction : validationError },
             response: {schema: poiSpecPlus, failAction: validationError},
           },
         

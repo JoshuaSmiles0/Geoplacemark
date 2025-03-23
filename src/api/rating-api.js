@@ -24,7 +24,7 @@ export const ratingApi = {
                 tags: ["api"],
         description: "Create a single Rating",
         notes: "Creates one rating in the database from passed rating details",
-        validate : {payload : ratingSpecPlus, params : {poiid : IdSpec, userid : IdSpec}, failAction : validationError},
+        validate : {payload : ratingSpec, params : {poiid : IdSpec, userid : IdSpec}, failAction : validationError},
         response : {schema : ratingSpecPlus, failAction : validationError}
               },
             
