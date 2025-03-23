@@ -1,5 +1,8 @@
 import dotenv from "dotenv";
 
+// Seed data for mongodb, contains the admin user
+// and a test object of each type
+
 const date = new Date();
 
 export const seedData = {

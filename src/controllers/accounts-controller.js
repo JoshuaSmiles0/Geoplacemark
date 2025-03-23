@@ -3,7 +3,7 @@ import { userSchema, userLoginSchema } from "../models/joi-schemas.js";
 
 export const accountsController = {
 
-
+      // Renders sign up view
       showSignup: {
         auth: false,
         handler: function (request, h) {
@@ -11,6 +11,7 @@ export const accountsController = {
         },
       },
 
+      // renders login view
       showLogin: {
         auth: false,
         handler: function (request, h) {
@@ -18,6 +19,7 @@ export const accountsController = {
         },
       },
 
+      // validates user against session userid and returns credentials
       async validate(request, session) {
         const user = await db.userStore.getUserById(session.id);
         if (!user) {
@@ -26,6 +28,11 @@ export const accountsController = {
         return { isValid: true, credentials: user };
       },
 
+      /**
+       * Adds a user to datastore from passed payload
+       * and redirects to index page. If Joi validation
+       * violated, returns user to signup page with errors
+       */
       signUp: {
         auth: false,
         validate : {
@@ -42,6 +49,13 @@ export const accountsController = {
         },
       },
 
+      /**
+       * Compares submitted credentials to database. 
+       * If user doesnt exist or password incorrect redirects
+       * user to login page and displays error. If Joi validation
+       * violated, also redirected. If user passes, cookie set to 
+       * user id and user dashboard rendered
+       */
       login: {
         auth: false,
         validate : {
@@ -66,6 +80,10 @@ export const accountsController = {
         }
       },
 
+      /**
+       * Clears cookies and redirects to index page
+       * logging out
+       */
       logout: {
         auth: false,
         handler: async function (request, h){
@@ -74,6 +92,8 @@ export const accountsController = {
         }
       },
 
+      // Redirects user to update their account details, requires validation
+      // to be passed and session cookie set
       showUpdateDetails: {
         handler: async function (request, h){
           const loggedInUser = request.auth.credentials;
@@ -86,6 +106,13 @@ export const accountsController = {
         }
       },
 
+      /**
+       * Retrieves user from passed id param.
+       * constructs new user details from payload
+       * updates user using old and new details 
+       * Also cascades and updates related Pois and Ratings
+       * Logs user out
+       */
       updateUser: {
         validate : {
               payload : userSchema,
@@ -111,6 +138,9 @@ export const accountsController = {
         }
       },
 
+      // Retrieves user from passed id param. Deletes user
+      // using this and associated Pois + ratings.
+      // Redirects to index page 
       deleteUser: {
         handler: async function (request, h){
           const user = await db.userStore.getUserById(request.params.id);
@@ -120,4 +150,4 @@ export const accountsController = {
           return h.redirect("/")
         }
       }
-}
+};

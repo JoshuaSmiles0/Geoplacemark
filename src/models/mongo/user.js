@@ -1,5 +1,7 @@
 import Mongoose from "mongoose";
 
+// Mongo schema for db user objects
+
 const { Schema } = Mongoose;
 
 const userSchema = new Schema({

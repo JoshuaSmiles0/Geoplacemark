@@ -4,7 +4,7 @@ import { poiApi } from "./api/poi-api.js";
 import { ratingApi } from "./api/rating-api.js";
 
 
-
+// Routes for Geoplacemark Api
 export const apiRoutes = [
 
    { method: "GET", path: "/api/users", config: userApi.findAll },

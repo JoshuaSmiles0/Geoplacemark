@@ -1,5 +1,7 @@
 import { v4 } from "uuid";
 
+// Methods for writing user data to in memory store
+
 let users = [];
 
 export const userMemStore = {

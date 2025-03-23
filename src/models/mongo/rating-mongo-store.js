@@ -1,6 +1,7 @@
 import Mongoose from "mongoose";
 import { Rating } from "./rating.js";
 
+// methods for writing rating data to mongo
 
 export const ratingMongoStore = {
 

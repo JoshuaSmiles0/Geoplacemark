@@ -1,6 +1,9 @@
 
+// Utility methods supporting controllers
 
 export const storeUtils = {
+
+    // Designed to retrieve the image paths for different site types
 
     getTypeIcon(type) {
         let typeIconAddress = null;
@@ -19,6 +22,8 @@ export const storeUtils = {
         }
         return typeIconAddress;
     },
+
+   // Designed to retrieve the image paths for ratings
 
     getRatingIcon(rating) {
         let ratingIconAddress = null;
@@ -44,6 +49,7 @@ export const storeUtils = {
         return ratingIconAddress;
     },
 
+    // Designed to calculate the average rating from an array of ratings
     getAverageRating(ratings) {
         let i = 0
         ratings.forEach(rate => {

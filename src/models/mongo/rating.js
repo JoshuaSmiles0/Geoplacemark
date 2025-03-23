@@ -1,6 +1,8 @@
 
 import Mongoose from "mongoose";
 
+// Mongo schema for db rating objects
+
 const { Schema } = Mongoose;
 
 const ratingSchema = new Schema({
