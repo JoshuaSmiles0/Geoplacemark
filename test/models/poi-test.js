@@ -1,7 +1,7 @@
 import { assert } from "chai";
-import { db } from "../src/models/db.js";
-import { testPoi, testPois, testU, updatedPoi, updatedUser } from "./fixtures.js";
-import { assertSubset } from "./test-utils.js";
+import { db } from "../../src/models/db.js";
+import { testPoi, testPois, testU, updatedPoi, updatedUser } from "../fixtures.js";
+import { assertSubset } from "../test-utils.js";
 
 let user = null;
 
