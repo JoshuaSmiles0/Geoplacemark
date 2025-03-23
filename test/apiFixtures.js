@@ -50,6 +50,7 @@ export const updatedPoi = {
     long: -7.720177158598912,
     type: "palaeo",
     description: "A Fossil location in the hills",
+    iconAddress: "an icon address"
 };
 
 
@@ -79,29 +80,45 @@ export const testPois = [
 
 export const testRating = {
     comment: "Really loved visiting, the rocks were fascinating",
-    rating: "5"
+    rating: "5",
+    ratingIconAddress: "an icon address",
+    locationName: "silvermines",
+    user: "Patrick Reilly",
 };
 
 export const updatedRating = {
     comment: "Did not like this place at all",
-    rating: "1"
+    rating: "1",
+    ratingIconAddress: "an icon address",
+    locationName: "silvermines",
+    user: "Patrick Reilly"    
 };
 
 
 export const testRatings = [
     {
        comment: "Wasn't too keen, couldnt see much",
-       rating: "2"
+       rating: "2",
+       ratingIconAddress: "an icon address",
+       locationName: "silvermines",
+       user: "Patrick Reilly"
 
     },
     {
        comment: "Collected plenty of specimens, weather could have been better!",
-       rating: "3"
+       rating: "3",
+       ratingIconAddress: "an icon address",
+       locationName: "silvermines",
+       user: "Patrick Reilly"
+
 
     },
     {
        comment: "Really loved visiting, trip of a lifetime",
-       rating: "5"
+       rating: "5",
+       ratingIconAddress: "an icon address",
+       locationName: "silvermines",
+       user: "Patrick Reilly"
 
     }
 ];
