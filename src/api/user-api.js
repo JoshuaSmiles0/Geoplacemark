@@ -1,5 +1,8 @@
 import Boom  from "@hapi/boom";
 import { db } from "../models/db.js";
+import { IdSpec, userSpec, userSpecPlus, UserArray } from "../models/api-joi-schemas.js";
+import { validationError } from "./logger.js";
+
 
 export const userApi = {
 
@@ -16,6 +19,11 @@ export const userApi = {
             return Boom.serverUnavailable("Database Error");
           }
         },
+        tags: ["api"],
+        description: "Create a single user",
+        notes: "Creates one user in the database from passed user details",
+        validate: { payload: userSpecPlus, failAction: validationError },
+        response: { schema: userSpecPlus, failAction: validationError },
       },
     
       findAll: {
@@ -28,6 +36,10 @@ export const userApi = {
             return Boom.serverUnavailable("Database Error");
           }
         },
+        tags: ["api"],
+        description: "Get all users",
+        notes: "Returns details of all users",
+        response: {schema: UserArray, failAction: validationError},
       },
 
 
@@ -44,6 +56,11 @@ export const userApi = {
             return Boom.serverUnavailable("No User with this id");
           }
         },
+        tags: ["api"],
+        description: "Get one user by id",
+        notes: "Returns details of user with corresponding id",
+        validate : {params: {id: IdSpec}, failAction: validationError},
+        response: {schema: userSpecPlus, failAction:  validationError}
       },
 
       deleteAll: {
@@ -56,6 +73,9 @@ export const userApi = {
             return Boom.serverUnavailable("Database Error");
           }
         },
+        tags: ["api"],
+        description: "Delete all users",
+        notes: "Deletes all users from db",
       },
 
       deleteById: {
@@ -72,6 +92,10 @@ export const userApi = {
             return Boom.serverUnavailable("Database Error");
           }
         },
+        tags: ["api"],
+        description: "Delete one user by id",
+        notes: "Deletes user in db with corresponding passed id",
+        validate: {params: {id: IdSpec}, failAction : validationError}
       },
 
       update: {
@@ -89,6 +113,10 @@ export const userApi = {
             catch (err) {
                 return Boom.serverUnavailable("Database Error");
             }
-        }
-      }
+        },
+        tags: ["api"],
+        description: "Update one user",
+        notes: "Updates a user by id with passed update details",
+        validate: {params: {id: IdSpec}, payload: userSpec, failAction: validationError},
+      },
     };

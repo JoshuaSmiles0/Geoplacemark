@@ -1,5 +1,7 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
+import { poiArray, poiSpec, poiSpecPlus, IdSpec, UserArray } from "../models/api-joi-schemas.js";
+import { validationError } from "./logger.js";
 
 
 export const poiApi = {
@@ -17,6 +19,11 @@ export const poiApi = {
                 return Boom.serverUnavailable("Database Error");
               }
             },
+            tags: ["api"],
+            description: "Create a single poi",
+            notes: "Creates one poi in the database from passed poi details",
+            validate: {payload: poiSpecPlus, failAction : validationError },
+            response: {schema: poiSpecPlus, failAction: validationError},
           },
         
           findAll: {
@@ -29,6 +36,10 @@ export const poiApi = {
                 return Boom.serverUnavailable("Database Error");
               }
             },
+            tags: ["api"],
+        description: "Get all poi",
+        notes: "returns all pois from database",
+        response: {schema: poiArray, failAction: validationError}
           },
     
     
@@ -45,6 +56,11 @@ export const poiApi = {
                 return Boom.serverUnavailable("No Poi with this id");
               }
             },
+            tags: ["api"],
+        description: "Find a poi by id",
+        notes: "Retrieves poi associated with passed id",
+        validate : {params : {id : IdSpec}, failAction: validationError},
+        response : {schema : poiSpecPlus, failAction: validationError}
           },
 
           findByuserId: {
@@ -61,6 +77,11 @@ export const poiApi = {
                 return Boom.serverUnavailable("No Poi associated with this user");
               }
             },
+            tags: ["api"],
+        description: "Find pois by user id",
+        notes: "Retrieves all pois associated with passed userid",
+        validate : {params : {userid: IdSpec}, failAction : validationError},
+        response : {schema : poiArray, failAction : validationError},
           },
 
           findByType: {
@@ -76,7 +97,13 @@ export const poiApi = {
                 return Boom.serverUnavailable("no poi of this type");
               }
             },
+            tags: ["api"],
+        description: "Find Pois by type",
+        notes: "Retrieves all pois of passed type",
+        validate : {params :{ type : IdSpec}, failAction : validationError},
+        response : {schema : poiArray, failAction : validationError},
           },
+        
     
           deleteAll: {
             auth: false,
@@ -88,6 +115,9 @@ export const poiApi = {
                 return Boom.serverUnavailable("Database Error");
               }
             },
+            tags: ["api"],
+        description: "Delete all pois",
+        notes: "Deletes all pois from database",
           },
     
           deleteById: {
@@ -104,6 +134,10 @@ export const poiApi = {
                 return Boom.serverUnavailable("Database Error");
               }
             },
+            tags: ["api"],
+        description: "Delete poi by id",
+        notes: "Deletes a single poi using passed id",
+        validate : {params : {id : IdSpec}, failAction : validationError},
           },
 
           deleteByUserId: {
@@ -120,6 +154,10 @@ export const poiApi = {
                 return Boom.serverUnavailable("Database Error");
               }
             },
+            tags: ["api"],
+        description: "Delete pois by user id",
+        notes: "Deletes all pois associated with passed userid",
+        validate : {params : {userid : IdSpec}, failAction : validationError}
           },
     
           update: {
@@ -137,8 +175,12 @@ export const poiApi = {
                       catch (err) {
                           return Boom.serverUnavailable("Database Error");
                       }
-                  }
+                  },
+                  tags: ["api"],
+        description: "Update one poi",
+        notes: "Updates poi associated with passed id with passed update details",
+        validate: {params: {id: IdSpec}, payload: poiSpec, failAction: validationError},
                 }
           };
 
-    
+        

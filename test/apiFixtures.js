@@ -38,43 +38,52 @@ export const updatedUser = {
 
 export const testPoi = {
     location: "Tara mines",
-    lat:  53.65394778470117,
-    long: -6.720177158598912,
+    lat:  "53.65394778470117",
+    long: "-6.720177158598912",
     type: "economic",
     description: "A lead and zinc mine in the republic of ireland near the town of navan",
+    iconAddress: "an icon address",
+     author: "Joe bloggs"
 };
 
 export const updatedPoi = {
     location: "Listoonvarna",
-    lat:  54.65394778470117,
-    long: -7.720177158598912,
+    lat:  "54.65394778470117",
+    long: "-7.720177158598912",
     type: "palaeo",
     description: "A Fossil location in the hills",
-    iconAddress: "an icon address"
+    iconAddress: "an icon address",
+     author: "Joe bloggs"
 };
 
 
 export const testPois = [
     {
        location: "silvermines",
-       lat:  53.65394778470117,
-       long: -6.720177158598912,
+       lat:  "53.65394778470117",
+       long: "-6.720177158598912",
        type: "economic",
        description: "A lead and zinc mine in the republic of ireland near the town of navan",
+       iconAddress: "an icon address",
+       author: "Joe bloggs"
     },
     {
         location: "Slieve Foye",
-        lat:  54.043728,
-        long: -6.215958,
+        lat:  "54.043728",
+        long: "-6.215958",
         type: "mineralogical",
         description: "A mountain with igneous rocks in Co. Louth Ireland on the Carlingford peninsula",
+        iconAddress: "an icon address",
+         author: "Joe bloggs"
     },
     {
         location: "Hook Head",
-        lat:  52.123344,
-        long: -6.926058,
+        lat:  "52.123344",
+        long: "-6.926058",
         type: "palaeo",
         description: "A hotbed of exceptionally preserved fossils on the coast of wexford",
+        iconAddress: "an icon address",
+         author: "Joe bloggs"
     },
 ];
 
@@ -84,6 +93,7 @@ export const testRating = {
     ratingIconAddress: "an icon address",
     locationName: "silvermines",
     user: "Patrick Reilly",
+    date: "2025-03-23T09:53:58.234+00:00"
 };
 
 export const updatedRating = {

@@ -1,5 +1,8 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
+import { ratingArray, ratingSpec, ratingSpecPlus, IdSpec, userSpecPlus, } from "../models/api-joi-schemas.js";
+import { validationError } from "./logger.js";
+import { validate } from "uuid";
 
 
 export const ratingApi = {
@@ -17,6 +20,11 @@ export const ratingApi = {
                     return Boom.serverUnavailable("Database Error");
                   }
                 },
+                tags: ["api"],
+        description: "Create a single Rating",
+        notes: "Creates one rating in the database from passed rating details",
+        validate : {payload : ratingSpecPlus, params : {poiid : IdSpec, userid : IdSpec}, failAction : validationError},
+        response : {schema : ratingSpecPlus, failAction : validationError}
               },
             
               findAll: {
@@ -29,6 +37,10 @@ export const ratingApi = {
                     return Boom.serverUnavailable("Database Error");
                   }
                 },
+                tags: ["api"],
+        description: "Get all ratings",
+        notes: "retrieves all ratings from the database",
+        response: {schema : ratingArray, failAction: validationError}
               },
         
         
@@ -45,6 +57,11 @@ export const ratingApi = {
                     return Boom.serverUnavailable("No Rating with this id");
                   }
                 },
+                tags: ["api"],
+        description: "Find a rating by id",
+        notes: "Retrieves rating from database corresponding to passed id",
+        validate : {params : {id : IdSpec}, failAction : validationError},
+        response : {schema : ratingSpecPlus, failAction : validationError},
               },
     
               findByuserId: {
@@ -61,6 +78,11 @@ export const ratingApi = {
                     return Boom.serverUnavailable("No ratings associated with this user");
                   }
                 },
+                tags: ["api"],
+        description: "Find ratings by user id",
+        notes: "retrieves all ratings associated with passed userid",
+        validate : {params : {userid : IdSpec}, failAction : validationError},
+        response : {schema : ratingArray, failAction : validationError},
               },
     
               findByRating: {
@@ -76,6 +98,11 @@ export const ratingApi = {
                     return Boom.serverUnavailable("no ratings of this value");
                   }
                 },
+                tags: ["api"],
+        description: "Find ratings by rating value",
+        notes: "retrieves all ratings of the passed value",
+        validate : {params : {rating : IdSpec}, failAction : validationError},
+        response : {schema : ratingArray, failAction : validationError},
               },
 
               findByPoi: {
@@ -91,6 +118,11 @@ export const ratingApi = {
                     return Boom.serverUnavailable("no ratings on this site");
                   }
                 },
+                tags: ["api"],
+        description: "Find ratings by poi",
+        notes: "retrieves all ratings associated with passed poi id",
+        validate : {params : {poiid : IdSpec}, failAction : validationError},
+        response : {schema : ratingArray, failAction : validationError},
               },
         
               deleteAll: {
@@ -103,6 +135,9 @@ export const ratingApi = {
                     return Boom.serverUnavailable("Database Error");
                   }
                 },
+                tags: ["api"],
+        description: "Delete all ratings",
+        notes: "deletes all ratings from the database",
               },
         
               deleteById: {
@@ -119,6 +154,10 @@ export const ratingApi = {
                     return Boom.serverUnavailable("Database Error");
                   }
                 },
+                tags: ["api"],
+        description: "Delete rating by id",
+        notes: "deletes rating associated with passed id",
+        validate : {params : {id : IdSpec}, failAction : validationError},
               },
     
               deleteByUserId: {
@@ -135,6 +174,10 @@ export const ratingApi = {
                     return Boom.serverUnavailable("Database Error");
                   }
                 },
+                tags: ["api"],
+        description: "Delete ratings by user id",
+        notes: "Delete all ratings associated with passed user id",
+        validate : {params : {userid : IdSpec}, failAction : validationError},
               },
 
               deleteByPoi: {
@@ -151,6 +194,10 @@ export const ratingApi = {
                     return Boom.serverUnavailable("Database Error");
                   }
                 },
+                tags: ["api"],
+        description: "Delete ratings by poi id",
+        notes: "Deletes all ratings associated with passed poi id",
+        validate : {params : {poiid : IdSpec}, failAction : validationError},
               },
         
               update: {
@@ -168,6 +215,10 @@ export const ratingApi = {
                           catch (err) {
                               return Boom.serverUnavailable("Database Error");
                           }
-                      }
+                      },
+                      tags: ["api"],
+        description: "Update one rating",
+        notes: "Updates rating associated with passed id with passed details",
+        validate : {params : {id : IdSpec}, failAction : validationError},
                     }
 };

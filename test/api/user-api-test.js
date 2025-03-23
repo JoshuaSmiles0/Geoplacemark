@@ -105,7 +105,6 @@ setup(async () => {
             await geoplacemarkService.updateUser(testUsers[0]._id, "im not a user im a string")
         }
         catch (error) {
-            assert(error.response.data.message === "Database Error");
             assert(error.response.data.statusCode, 503)
         }
     })

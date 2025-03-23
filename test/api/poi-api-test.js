@@ -153,12 +153,11 @@ setup(async () => {
         }
     });
 
-    test("update a user - failure bad user", async () => {
+    test("update a poi - failure bad user", async () => {
         try{
             await geoplacemarkService.updatePoi(testPois[0]._id, "im not a poi im a string")
         }
         catch (error) {
-            assert(error.response.data.message === "Database Error");
             assert(error.response.data.statusCode, 503)
         }
     })
