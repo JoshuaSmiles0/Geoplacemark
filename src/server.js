@@ -8,8 +8,11 @@ import Inert from "@hapi/inert";
 import Cookie from "@hapi/cookie";
 import dotenv from "dotenv";
 import { webRoutes } from "./webRoutes.js";
+import { apiRoutes } from "./api-routes.js";
 import { db } from "./models/db.js";
 import { accountsController } from "./controllers/accounts-controller.js";
+
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -50,6 +53,7 @@ async function init() {
       isCached: false,
     });
     db.init("mongo");
+    server.route(apiRoutes);
     server.route(webRoutes);
     await server.start();
     console.log("Server running on %s", server.info.uri);
