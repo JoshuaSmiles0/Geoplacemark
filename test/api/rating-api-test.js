@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
-import { testU, testUsers,updatedUser, testPoi, testPois, updatedPoi, testRating, testRatings, updatedRating } from "../apiFixtures.js";
+import { testU, apiUser, testUsers,updatedUser, testPoi, testPois, updatedPoi, testRating, testRatings, updatedRating } from "../apiFixtures.js";
 import { geoplacemarkService } from "./geoplacemark-service.js";
 
 
@@ -9,9 +9,14 @@ import { geoplacemarkService } from "./geoplacemark-service.js";
 
 suite("rating API tests", () => {
 setup(async () => {
-        await geoplacemarkService.deleteAllUsers();
+        geoplacemarkService.clearAuth()
+        let u = await geoplacemarkService.createUser(apiUser);
+        await geoplacemarkService.authenticate(u);
         await geoplacemarkService.deleteAllPois();
         await geoplacemarkService.deleteAllRatings();
+        await geoplacemarkService.deleteAllUsers();
+        u = await geoplacemarkService.createUser(apiUser);
+        await geoplacemarkService.authenticate(u);
         for (let i = 0; i < testPois.length; i +=1) {
             testUsers[i] = await geoplacemarkService.createUser(testUsers[i])
             testPois[i].userid = testUsers[i]._id

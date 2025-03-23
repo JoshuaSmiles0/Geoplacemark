@@ -8,10 +8,12 @@ import Inert from "@hapi/inert";
 import Cookie from "@hapi/cookie";
 import dotenv from "dotenv";
 import HapiSwagger from "hapi-swagger";
+import jwt from "hapi-auth-jwt2";
 import { webRoutes } from "./webRoutes.js";
 import { apiRoutes } from "./api-routes.js";
 import { db } from "./models/db.js";
 import { accountsController } from "./controllers/accounts-controller.js";
+import { validate } from "./api/jwt-utils.js";
 
 const swaggerOptions = {
   info: {
@@ -40,6 +42,7 @@ async function init() {
       plugin: HapiSwagger,
       options: swaggerOptions,
     },);
+    await server.register(jwt);
     server.auth.strategy("session", "cookie", {
       cookie: {
         name: process.env.COOKIE_NAME,
@@ -48,6 +51,11 @@ async function init() {
       },
       redirectTo: "/",
       validate: accountsController.validate,
+    });
+    server.auth.strategy("jwt", "jwt", {
+      key: process.env.cookie_password,
+      validate: validate,
+      verifyOptions: { algorithms: ["HS256"] }
     });
     server.auth.default("session");
     server.validator(Joi);

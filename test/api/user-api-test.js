@@ -7,6 +7,9 @@ import { geoplacemarkService } from "./geoplacemark-service.js";
 
 suite("User API tests", () => {
 setup(async () => {
+    geoplacemarkService.clearAuth();
+    const newUser = await geoplacemarkService.createUser(updatedUser);
+    await geoplacemarkService.authenticate(newUser);
         await geoplacemarkService.deleteAllUsers();
         for (let i = 0; i < testUsers.length; i +=1) {
             testUsers[i] = await geoplacemarkService.createUser(testUsers[i])

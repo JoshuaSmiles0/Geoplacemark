@@ -2,13 +2,14 @@ import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 import { ratingArray, ratingSpec, ratingSpecPlus, IdSpec, userSpecPlus, } from "../models/api-joi-schemas.js";
 import { validationError } from "./logger.js";
-import { validate } from "uuid";
 
 
 export const ratingApi = {
 
     create: {
-                auth: false,
+      auth: {
+        strategy: "jwt",
+      },
                 handler: async function(request, h) {
                   try {
                     const rating = await db.ratingStore.addRating(request.params.poiid, request.params.userid,request.payload);
@@ -28,7 +29,9 @@ export const ratingApi = {
               },
             
               findAll: {
-                auth: false,
+                auth: {
+                  strategy: "jwt",
+                },
                 handler: async function(request, h) {
                   try {
                     const ratings = await db.ratingStore.getAllRatings();
@@ -45,7 +48,9 @@ export const ratingApi = {
         
         
               findById: {
-                auth: false,
+                auth: {
+                  strategy: "jwt",
+                },
                 handler: async function (request, h) {
                   try {
                     const rating = await db.ratingStore.getRatingById(request.params.id);
@@ -65,7 +70,9 @@ export const ratingApi = {
               },
     
               findByuserId: {
-                auth: false,
+                auth: {
+                  strategy: "jwt",
+                },
                 handler: async function (request, h) {
                   try {
                     const rating = await db.ratingStore.getRatingsByUserId(request.params.userid);
@@ -86,7 +93,9 @@ export const ratingApi = {
               },
     
               findByRating: {
-                auth: false,
+                auth: {
+                  strategy: "jwt",
+                },
                 handler: async function (request, h) {
                   try {
                     const rating = await db.ratingStore.getRatingsByRatingValue(request.params.rating);
@@ -106,7 +115,9 @@ export const ratingApi = {
               },
 
               findByPoi: {
-                auth: false,
+                auth: {
+                  strategy: "jwt",
+                },
                 handler: async function (request, h) {
                   try {
                     const rating = await db.ratingStore.getRatingsByPoiId(request.params.poiid);
@@ -126,7 +137,9 @@ export const ratingApi = {
               },
         
               deleteAll: {
-                auth: false,
+                auth: {
+                  strategy: "jwt",
+                },
                 handler: async function (request, h) {
                   try {
                     await db.ratingStore.deleteAllRatings();
@@ -141,7 +154,9 @@ export const ratingApi = {
               },
         
               deleteById: {
-                auth: false,
+                auth: {
+                  strategy: "jwt",
+                },
                 handler: async function (request, h) {
                   try {
                    const  rating = await db.ratingStore.getRatingById(request.params.id);
@@ -161,7 +176,9 @@ export const ratingApi = {
               },
     
               deleteByUserId: {
-                auth: false,
+                auth: {
+                  strategy: "jwt",
+                },
                 handler: async function (request, h) {
                   try {
                    const  rating = await db.ratingStore.getRatingsByUserId(request.params.userid);
@@ -181,7 +198,9 @@ export const ratingApi = {
               },
 
               deleteByPoi: {
-                auth: false,
+                auth: {
+                  strategy: "jwt",
+                },
                 handler: async function (request, h) {
                   try {
                    const  rating = await db.ratingStore.getRatingsByPoiId(request.params.poiid);
@@ -201,7 +220,9 @@ export const ratingApi = {
               },
         
               update: {
-                      auth: false,
+                auth: {
+                  strategy: "jwt",
+                },
                       handler : async function (request, h) {
                           try {
                               const rating = await db.ratingStore.getRatingById(request.params.id)

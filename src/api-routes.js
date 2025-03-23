@@ -33,6 +33,7 @@ export const apiRoutes = [
    { method: "DELETE", path: "/api/ratings/user/{userid}", config: ratingApi.deleteByUserId},
    { method: "DELETE", path: "/api/ratings/poi/{poiid}", config: ratingApi.deleteByPoi},
    { method: "PUT", path: "/api/ratings/{id}", config: ratingApi.update},
+   { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
 
 
 ];

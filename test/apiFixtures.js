@@ -3,7 +3,14 @@ export const serviceUrl = "http://localhost:3000";
 export const testU = {
     firstName : "Trevor",
     surname : "Duffy",
-    email : "trevord@gmail.com",
+    email : "trevor.d@gmail.com",
+    password : "secret",
+};
+
+export const apiUser = {
+    firstName : "Nick",
+    surname : "Cage",
+    email : "N.Cage@gmail.com",
     password : "secret",
 };
 

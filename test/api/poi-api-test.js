@@ -8,8 +8,13 @@ import { geoplacemarkService } from "./geoplacemark-service.js";
 
 suite("Poi API tests", () => {
 setup(async () => {
-        await geoplacemarkService.deleteAllUsers();
+        geoplacemarkService.clearAuth()
+        let u = await geoplacemarkService.createUser(updatedUser)
+        await geoplacemarkService.authenticate(u)
         await geoplacemarkService.deleteAllPois();
+        await geoplacemarkService.deleteAllUsers();
+        u = await geoplacemarkService.createUser(updatedUser);
+        await  geoplacemarkService.authenticate(u);
         for (let i = 0; i < testPois.length; i +=1) {
             testUsers[i] = await geoplacemarkService.createUser(testUsers[i])
             testPois[i].userid = testUsers[i]._id

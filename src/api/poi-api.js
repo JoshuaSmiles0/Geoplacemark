@@ -7,7 +7,9 @@ import { validationError } from "./logger.js";
 export const poiApi = {
 
      create: {
-            auth: false,
+      auth: {
+        strategy: "jwt",
+      },
             handler: async function(request, h) {
               try {
                 const poi = await db.poiStore.addPoi(request.payload);
@@ -27,7 +29,9 @@ export const poiApi = {
           },
         
           findAll: {
-            auth: false,
+            auth: {
+              strategy: "jwt",
+            },
             handler: async function(request, h) {
               try {
                 const pois = await db.poiStore.getAllPoi();
@@ -44,7 +48,9 @@ export const poiApi = {
     
     
           findById: {
-            auth: false,
+            auth: {
+              strategy: "jwt",
+            },
             handler: async function (request, h) {
               try {
                 const poi = await db.poiStore.getPoiById(request.params.id);
@@ -64,7 +70,9 @@ export const poiApi = {
           },
 
           findByuserId: {
-            auth: false,
+            auth: {
+              strategy: "jwt",
+            },
             handler: async function (request, h) {
               try {
                 const poi = await db.poiStore.getPoiByUserId(request.params.userid);
@@ -85,7 +93,9 @@ export const poiApi = {
           },
 
           findByType: {
-            auth: false,
+            auth: {
+              strategy: "jwt",
+            },
             handler: async function (request, h) {
               try {
                 const poi = await db.poiStore.getPoiByType(request.params.type);
@@ -106,7 +116,9 @@ export const poiApi = {
         
     
           deleteAll: {
-            auth: false,
+            auth: {
+              strategy: "jwt",
+            },
             handler: async function (request, h) {
               try {
                 await db.poiStore.deleteAllPoi();
@@ -121,7 +133,9 @@ export const poiApi = {
           },
     
           deleteById: {
-            auth: false,
+            auth: {
+              strategy: "jwt",
+            },
             handler: async function (request, h) {
               try {
                const  poi = await db.poiStore.getPoiById(request.params.id);
@@ -141,7 +155,9 @@ export const poiApi = {
           },
 
           deleteByUserId: {
-            auth: false,
+            auth: {
+              strategy: "jwt",
+            },
             handler: async function (request, h) {
               try {
                const  poi = await db.poiStore.getPoiByUserId(request.params.userid);
@@ -161,7 +177,9 @@ export const poiApi = {
           },
     
           update: {
-                  auth: false,
+            auth: {
+              strategy: "jwt",
+            },
                   handler : async function (request, h) {
                       try {
                           const poi = await db.poiStore.getPoiById(request.params.id)
