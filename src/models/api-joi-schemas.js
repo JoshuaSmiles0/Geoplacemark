@@ -68,6 +68,8 @@ export const imageSpec = Joi.object()
 .keys({
   url: Joi.string().example("an image url").required(),
   poiid: IdSpec,
+  userid:IdSpec,
+  publicid:IdSpec,
 }).label("ImageSpec")
 
 export const imageSpecPlus = imageSpec.keys({

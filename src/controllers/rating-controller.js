@@ -237,11 +237,14 @@ export const ratingController = {
   uploadImage: {
     handler: async function (request, h) {
       try {
+        const loggedInUser = request.auth.credentials;
+        const userDetails = await db.userStore.getUserById(loggedInUser._id)
         const poi = await db.poiStore.getPoiById(request.params.id);
         const file = request.payload.imagefile;
         if (Object.keys(file).length > 0) {
           const url = await imageStore.uploadImage(request.payload.imagefile);
-          await db.imageStore.addImage(url, poi._id);
+          const publicId = url.split("/").pop().split(".")[0];
+          await db.imageStore.addImage(url, poi._id, userDetails._id,publicId);
         }
         return h.redirect(`/poi/${poi._id}`);
       } catch (err) {

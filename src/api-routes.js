@@ -36,5 +36,6 @@ export const apiRoutes = [
    { method: "PUT", path: "/api/ratings/{id}", config: ratingApi.update},
    { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
    { method: "GET", path: "/api/images/poi/{poiid}", config: imageApi.findByPoiId},
-   { method: "DELETE", path: "/api/images/{id}/{name}", config: imageApi.deleteById}
+   { method: "DELETE", path: "/api/images/{id}/{name}", config: imageApi.deleteById},
+   { method: "GET", path: "/api/images/{id}", config: imageApi.findById},
 ];

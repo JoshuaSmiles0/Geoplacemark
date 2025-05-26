@@ -10,6 +10,11 @@ const imageSchema = new Schema({
     type : Schema.Types.ObjectId,
     ref: "Poi",
   },
+  userid: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
+  publicid: String,
 });
 
 export const Image = Mongoose.model("Image", imageSchema);
