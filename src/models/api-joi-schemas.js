@@ -64,12 +64,26 @@ export const ratingSpecPlus = ratingSpec.keys({
     __v: Joi.number()
 }).label("RatingSpecPlus")
 
+export const imageSpec = Joi.object()
+.keys({
+  url: Joi.string().example("an image url").required(),
+  poiid: IdSpec,
+}).label("ImageSpec")
+
+export const imageSpecPlus = imageSpec.keys({
+  _id: IdSpec,
+  __v:Joi.number()
+}).label("ImageSpecPlus")
+
+export const imageArray = Joi.array().items(imageSpecPlus).label("imageArray");
+
 export const ratingArray = Joi.array().items(ratingSpecPlus).label("RatingArray");
 
 export const JwtAuth = Joi.object()
   .keys({
     success: Joi.boolean().example("true").required(),
     token: Joi.string().example("eyJhbGciOiJND.g5YmJisIjoiaGYwNTNjAOhE.gCWGmY5-YigQw0DCBo").required(),
+    _id: IdSpec,
   })
   .label("JwtAuth");
     

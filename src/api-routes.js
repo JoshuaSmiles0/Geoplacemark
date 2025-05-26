@@ -2,6 +2,7 @@
 import { userApi } from "./api/user-api.js";
 import { poiApi } from "./api/poi-api.js";
 import { ratingApi } from "./api/rating-api.js";
+import { imageApi } from "./api/image-api.js";
 
 
 // Routes for Geoplacemark Api
@@ -34,6 +35,6 @@ export const apiRoutes = [
    { method: "DELETE", path: "/api/ratings/poi/{poiid}", config: ratingApi.deleteByPoi},
    { method: "PUT", path: "/api/ratings/{id}", config: ratingApi.update},
    { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
-
-
+   { method: "GET", path: "/api/images/poi/{poiid}", config: imageApi.findByPoiId},
+   { method: "DELETE", path: "/api/images/{id}/{name}", config: imageApi.deleteById}
 ];

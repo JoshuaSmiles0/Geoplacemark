@@ -48,4 +48,5 @@ export const webRoutes = [
     { method: "GET", path: "/manageUsers/deleteUser/{id}", config: adminController.deleteUser},
     { method: "GET", path: "/manageSites/deleteSite/{id}", config: adminController.deleteSite},
     { method: "GET", path: "/manageRatings/deleteRating/{id}", config: adminController.deleteRating},
+    { method: "POST", path: "/poi/{id}/uploadimage", config: ratingController.uploadImage },
 ];

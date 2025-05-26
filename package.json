@@ -38,7 +38,8 @@
     "mais-mongoose-seeder": "^1.0.7",
     "mongodb": "6.15",
     "mongoose": "^8.10.1",
-    "uuid": "^11.0.5"
+    "uuid": "^11.0.5",
+    "cloudinary": "^2.6.1"
   },
   "engines": {
     "node": ">=16"

@@ -4,6 +4,7 @@ import { ratingJsonStore } from "./json/rating-json-store.js";
 import { userMemStore } from "./mem/user-mem-store.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { ratingMongoStore } from "./mongo/rating-mongo-store.js";
+import { imageMongoStore } from "./mongo/image-mongo-store.js";
 import { poiMongoStore } from "./mongo/poi-mongo-store.js";
 import { connectMongo } from "./mongo/connect.js";
 
@@ -13,6 +14,7 @@ export const db = {
     userStore : null,
     poiStore : null,
     ratingStore : null,
+    imageStore : null,
 
 
     init(storeType) {
@@ -29,6 +31,7 @@ export const db = {
             this.userStore = userMongoStore;
             this.poiStore = poiMongoStore;
             this.ratingStore = ratingMongoStore;
+            this.imageStore = imageMongoStore;
             connectMongo();
             break;
             default:

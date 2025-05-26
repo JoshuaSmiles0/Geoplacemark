@@ -1,6 +1,7 @@
 import { db } from "../models/db.js";
 import { storeUtils } from "../models/utils.js";
 import { ratingSchema } from "../models/joi-schemas.js";
+import { imageStore } from "../models/image-store.js";
 
 // Controls individual site dashboards and ratings
 
@@ -232,6 +233,29 @@ export const ratingController = {
         }
 
       },
+  
+  uploadImage: {
+    handler: async function (request, h) {
+      try {
+        const poi = await db.poiStore.getPoiById(request.params.id);
+        const file = request.payload.imagefile;
+        if (Object.keys(file).length > 0) {
+          const url = await imageStore.uploadImage(request.payload.imagefile);
+          await db.imageStore.addImage(url, poi._id);
+        }
+        return h.redirect(`/poi/${poi._id}`);
+      } catch (err) {
+        console.log(err);
+        return h.redirect(`/poi/${poi._id}`);
+      }
+    },
+    payload: {
+      multipart: true,
+      output: "data",
+      maxBytes: 209715200,
+      parse: true,
+    },
+  },
     }
 
 
