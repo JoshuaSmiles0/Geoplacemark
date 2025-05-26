@@ -4,10 +4,12 @@ import { Image } from "./image.js";
 export const imageMongoStore = {
 
 
-    async addImage(url,poiid) {
+    async addImage(url,poiid, userid, publicid) {
     const image = {
        url: url,
-       poiid: poiid
+       poiid: poiid,
+       userid: userid,
+       publicid: publicid
      };
      const addImage = new Image(image);
      const imgObj = await addImage.save();

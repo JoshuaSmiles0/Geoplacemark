@@ -14,12 +14,12 @@ export const imageApi = {
           },
           handler: async function (request, h) {
             try {
-              const rating = await db.imageStore.getImageByPoiId(request.params.poiid);
-              if(!rating)
+              const image = await db.imageStore.getImageByPoiId(request.params.poiid);
+              if(!image)
               {
                   return Boom.notFound("No images with this poi id");
               }
-              return rating;
+              return image;
             } catch (err) {
               return Boom.serverUnavailable("No images associated with this poi");
             }
@@ -54,7 +54,26 @@ export const imageApi = {
             validate : {params : {id : IdSpec, name : IdSpec }, failAction : validationError},
           },
   
-  
-  
-  
+  findById: {
+          auth: {
+            strategy: "jwt",
+          },
+          handler: async function (request, h) {
+            try {
+              const image = await db.imageStore.getImageById(request.params.id);
+              if(!image)
+              {
+                  return Boom.notFound("No image with this id");
+              }
+              return image;
+            } catch (err) {
+              return Boom.serverUnavailable("No images associated here");
+            }
+          },
+          tags: ["api"],
+              description: "Find images by id",
+            notes: "retrieves image associated with passed id",
+            validate : {params : {id : IdSpec}, failAction : validationError},
+            response : {schema : imageSpecPlus, failAction : validationError},
+        },
 }
